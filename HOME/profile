@@ -1,0 +1,9 @@
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export EDITOR=vim
+export PAGER=less
+
+export LESS="-i -R" # case-insensitive search and ANSI colors in less(1)
+export PYTHONSTARTUP=~/.pythonrc

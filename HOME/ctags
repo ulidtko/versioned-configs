@@ -1,0 +1,5 @@
+--totals
+--languages=c,c++,python
+--fields=+iaS
+--extra=+q
+--c++-kinds=+p

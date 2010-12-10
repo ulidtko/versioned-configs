@@ -1,0 +1,19 @@
+$include /etc/inputrc
+
+# Control-DEL
+"\e[3;5~": kill-word
+
+# zsh-like circulating completion
+#"\C-i": menu-complete
+#"\e[Z": menu-complete-krd
+
+set horizontal-scroll-mode off
+set match-hidden-files off
+set page-completions off
+set revert-all-at-newline on
+set show-all-if-ambiguous off
+set show-all-if-unmodified on
+set visible-stats on
+
+set completion-prefix-display-length 15
+set history-size 2000
