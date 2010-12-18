@@ -2,3 +2,5 @@
 tags
 *.rej
 *.orig
+
+.svn
