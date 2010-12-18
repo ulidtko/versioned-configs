@@ -6,4 +6,4 @@ export EDITOR=vim
 export PAGER=less
 
 export LESS="-i -R" # case-insensitive search and ANSI colors in less(1)
-export PYTHONSTARTUP=~/.pythonrc
+export PYTHONSTARTUP="$HOME/.pythonrc"
