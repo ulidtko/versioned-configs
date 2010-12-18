@@ -1,0 +1,10 @@
+[user]
+	name = max ulidtko
+	email = ulidtko@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[core]
+	excludesfile = ~/.config/git/gitignore
