@@ -1,0 +1,51 @@
+This is a repository in which max ulidtko stores some of his config files. He
+finds DVCS very convenient for doing this: one can have backup and easy
+replication and synchronisation of configuration files between several machines
+literally for free.
+
+
+Structure of the repo
+=====================
+.
+|-- HOME
+|   |-- bash_profile
+|   |-- bashrc
+|   |-- gitconfig
+|   |-- inputrc
+|   |-- profile
+|   |-- ...
+|   |-- vimrc
+|   `-- zshrc
+`-- README
+
+Surprisingly enough, HOME denotes your home directory. Files under HOME are hard
+links[1] to real config files (I guess symbolic links are usable too, but
+personally I use the hard ones), with leading dots in their names removed. So as
+your config files change, `git status`, `git diff` and others reflect these
+changes, and vice versa: `git pull` from another machine will update your config
+files directly, with neat merging, changes history etc etc. Cool huh?
+
+The single limitation of hard links is that they have to be on the same FS as
+your home. My recommendation for placing the repo is ~/.config/versioned
+
+[1] http://en.wikipedia.org/wiki/Hard_Link
+
+
+Using
+=====
+Some basic knowledge of git is inherently needed for working with this.
+
+Procedure is simple: clone the repo, setup the links, and you are done.
+
+$ cd ~/.config
+$ git clone git://github.com/ulidtko/versioned-configs.git versioned
+or
+$ git clone ssh://ulidtko.homelinux.net/~/.config/versioned.git
+$ cd versioned
+$ less README  #  ;-)
+$ rm -i ~/.profile; ln HOME/profile ~/.profile
+$ rm -i ~/.vimrc; ln HOME/vimrc ~/.vimrc
+and so on.
+
+
+If you have any questions or comments, contact me: ulidtko@gmail.com.
