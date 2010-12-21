@@ -4,3 +4,4 @@ tags
 *.orig
 
 .svn
+*.sw[po]

@@ -32,6 +32,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" set foldmethod=syntax
+" set foldcolumn=5
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
 	\let python_highlight_all=1 | compiler python |
       " \source "~/.vim/jpythonfold.vim"
@@ -39,7 +41,6 @@ au FileType python set shiftwidth=4 expandtab textwidth=79 |
 
 au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
 
-imap <C-Space> <C-X><C-O>
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :set background=dark<CR>
 nmap <F4> :LustyJuggler<CR>
@@ -60,17 +61,23 @@ let html_dynamic_folds = 1
 " longest - complete the longest common prefix of matches
 set completeopt=menu,preview,longest
 
+"
+" == CPP omni completion ==
+"
 let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
 set tags+=tags,./tags
 
 let OmniCpp_ShowAccess = 0
+let OmniCpp_DisplayMode = 1 " show all in class scopes
 let OmniCpp_ShowPrototypeInAbbr = 1
+let OmniCpp_LocalSearchDecl = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-set background=dark
 
 " use <C-r>+ to paste from OS C-c pasteboard
+
+colorscheme darkspectrum
 
 "
 "                       8888  8888888

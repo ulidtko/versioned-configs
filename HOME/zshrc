@@ -1,0 +1,42 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=5000
+setopt appendhistory autocd nomatch notify
+unsetopt extendedglob
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# The following lines were added by compinstall
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' format '%d:'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle :compinstall filename '/home/ulidtko/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+alias c="clear;cd"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+
+local -H TITLE
+
+PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
+TITLE="\e]0;[%n@%m:%1~]\a"
+
+REPORTTIME=5 # output time statistics when command is running longer than 5 sec
+stty tostop # stop background jobs trying to write to the terminal
+precmd () {
+	builtin jobs
+	print -Pn $TITLE
+}
+preexec () {
+	print -Pn "\e]0;$1\a"
+}
