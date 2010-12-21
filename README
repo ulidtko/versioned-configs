@@ -40,7 +40,7 @@ Procedure is simple: clone the repo, setup the links, and you are done.
 $ cd ~/.config
 $ git clone git://github.com/ulidtko/versioned-configs.git versioned
 or
-$ git clone ssh://ulidtko.homelinux.net/~/.config/versioned.git
+$ git clone ssh://ulidtko.homelinux.net/~/.config/versioned
 $ cd versioned
 $ less README  #  ;-)
 $ rm -i ~/.profile; ln HOME/profile ~/.profile
