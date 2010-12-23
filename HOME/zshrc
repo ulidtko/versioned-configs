@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=5000
+HISTFILE=~/.zsh_history
 setopt appendhistory autocd nomatch notify
 unsetopt extendedglob
 bindkey -e
@@ -9,7 +9,7 @@ bindkey -e
 
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' format '%d:'
+zstyle ':completion:*' format '-- completing %d --'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -22,6 +22,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+
 alias c="clear;cd"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -29,14 +30,24 @@ alias grep="grep --color=auto"
 local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
-TITLE="\e]0;[%n@%m:%1~]\a"
+TITLE="[%n@%m:%1~]"
 
 REPORTTIME=5 # output time statistics when command is running longer than 5 sec
 stty tostop # stop background jobs trying to write to the terminal
+
+set_title() {
+	case $TERM in
+	xterm*|rxvt*)
+		print -Pn "\e]0;$@\a"
+		;;
+	*)
+		;;
+	esac
+}
+
 precmd () {
-	builtin jobs
-	print -Pn $TITLE
+	set_title $TITLE
 }
 preexec () {
-	print -Pn "\e]0;$1\a"
+	set_title $1
 }
