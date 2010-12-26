@@ -39,7 +39,7 @@ alias grep="grep --color=auto"
 local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
-TITLE="[%n@%m:%1~]"
+TITLE="[%n@%m], %1~"
 
 REPORTTIME=5 # output time statistics when command is running longer than 5 sec
 stty tostop # stop background jobs trying to write to the terminal
@@ -58,5 +58,5 @@ precmd () {
 	set_title $TITLE
 }
 preexec () {
-	set_title $1
+	set_title "[%n@%m], {$1}"
 }
