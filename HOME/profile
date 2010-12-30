@@ -5,5 +5,7 @@ fi
 export EDITOR=vim
 export PAGER=less
 
-export LESS="-i -R" # case-insensitive search and ANSI colors in less(1)
+export LESS="-i -R" # case-insensitive search and term colors in less(1)
+[ -x `which lesspipe` ] && eval $(lesspipe) # useful input preprocessor for less
+
 export PYTHONSTARTUP="$HOME/.pythonrc"
