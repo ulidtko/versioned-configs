@@ -19,7 +19,6 @@ set title " set cool terminal titles
 set nobackup " use scm, dude
 set noswapfile " load all into memory; let i try this
 
-set hidden
 " One particularly useful setting is hidden. Its name isn’t too descriptive,
 " though. It hides buffers instead of closing them. This means that you can
 " have unwritten changes to a file and open a new file using :e, without being
@@ -27,6 +26,13 @@ set hidden
 " preserved while the buffer is open. This is an absolute must-have.
 "
 " http://nvie.com/posts/how-i-boosted-my-vim/
+set hidden
+
+" when completing in cmdline, ignore some extensions
+set wildignore+=*.o
+" ... and give less priority to files without suffix - probably binary
+" executables - over the sources with whatever suffix
+set suffixes+=,
 
 filetype on
 filetype plugin on
