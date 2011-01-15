@@ -9,3 +9,6 @@ export LESS="-i -R" # case-insensitive search and term colors in less(1)
 [ -x `which lesspipe` ] && eval $(lesspipe) # useful input preprocessor for less
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
+
+export CFLAGS="-O2 -Wall -Wpointer-arith -Wcast-align -Wcast-equal -Wwrite-strings"
+export CXXFLAGS="${CFLAGS} -Weffc++"
