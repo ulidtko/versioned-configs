@@ -12,3 +12,5 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 
 export CFLAGS="-O2 -Wall -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
 export CXXFLAGS="${CFLAGS} -Weffc++"
+
+alias wget="wget --content-disposition"
