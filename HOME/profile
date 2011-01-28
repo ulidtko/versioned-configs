@@ -13,4 +13,9 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 export CFLAGS="-O2 -Wall -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
 export CXXFLAGS="${CFLAGS} -Weffc++"
 
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+
+alias c="clear;cd"
 alias wget="wget --content-disposition"
+alias df=pydf

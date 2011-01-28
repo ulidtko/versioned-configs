@@ -32,10 +32,6 @@ compinit
 # End of lines added by compinstall
 
 
-alias c="clear;cd"
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-
 local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
