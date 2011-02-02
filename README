@@ -16,19 +16,18 @@ Structure of the repo
 |   |-- ...
 |   |-- vimrc
 |   `-- zshrc
+|-- install.sh
 `-- README
 
-Surprisingly enough, HOME denotes your home directory. Files under HOME are hard
-links[1] to real config files (I guess symbolic links are usable too, but
-personally I use the hard ones), with leading dots in their names removed. So as
-your config files change, `git status`, `git diff` and others reflect these
-changes, and vice versa: `git pull` from another machine will update your config
-files directly, with neat merging, changes history etc etc. Cool huh?
+Surprisingly enough, HOME denotes your home directory. Files under HOME are
+config files with leading dots in their names removed. To use them, you'll need
+to replace your current config files under ~ with symlinks. install.sh will
+help you do that.
 
-The single limitation of hard links is that they have to be on the same FS as
-your home. My recommendation for placing the repo is ~/.config/versioned
-
-[1] http://en.wikipedia.org/wiki/Hard_Link
+I'd be glad to know how to make git rewrite files instead of replacing them
+when manipulating the working copy. This way it could be possible to use hard
+links instead of replacing files in ~ with symlinks; if you know relevant git
+option, tell me.
 
 
 Using
@@ -43,9 +42,7 @@ or
 $ git clone ssh://ulidtko.homelinux.net/~/.config/versioned
 $ cd versioned
 $ less README  #  ;-)
-$ rm -i ~/.profile; ln HOME/profile ~/.profile
-$ rm -i ~/.vimrc; ln HOME/vimrc ~/.vimrc
-and so on.
+$ ./install.sh
 
 
 If you have any questions or comments, contact me: ulidtko@gmail.com.
