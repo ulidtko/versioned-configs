@@ -1,0 +1,2 @@
+options(width=120, digits=4)
+options(prompt="R> ")

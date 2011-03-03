@@ -19,3 +19,4 @@ alias grep="grep --color=auto"
 alias c="clear;cd"
 alias wget="wget --content-disposition"
 alias df=pydf
+alias R="R --no-save"
