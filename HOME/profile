@@ -14,7 +14,7 @@ export CFLAGS="-O2 -Wall -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-string
 export CXXFLAGS="${CFLAGS} -Weffc++"
 
 alias ls="ls --color=auto"
-alias grep="grep --color=auto"
+alias grep="grep --color=auto --exclude-dir=.svn"
 
 alias c="clear;cd"
 alias wget="wget --content-disposition"
