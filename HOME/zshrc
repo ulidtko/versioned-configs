@@ -1,6 +1,8 @@
 # Lines configured by zsh-newuser-install
 HISTSIZE=1000
 SAVEHIST=5000
+#setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 HISTFILE=~/.zsh_history
 setopt appendhistory autocd nomatch notify
 unsetopt extendedglob

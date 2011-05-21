@@ -51,6 +51,9 @@ nmap <F9> :up<CR>:make<CR>
 nmap <F12> :set background=dark<CR>
 nmap <F4> :LustyJuggler<CR>
 
+" press space to turn off matches highlighting and clear any message already displayed
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " window navigation
 "nmap <C-h> <C-w>h
 "nmap <C-j> <C-w>j

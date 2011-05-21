@@ -1,5 +1,4 @@
 HashKnownHosts no
 ServerAliveInterval 15
 
-Host codeminders.com *.codeminders.com
 User ulidtko
