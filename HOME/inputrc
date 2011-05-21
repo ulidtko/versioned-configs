@@ -17,3 +17,7 @@ set visible-stats on
 
 set completion-prefix-display-length 15
 set history-size 2000
+
+$if python
+    TAB: complete
+$endif
