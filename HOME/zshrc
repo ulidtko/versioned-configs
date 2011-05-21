@@ -33,11 +33,11 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+source "$HOME/.zsh_seth-house_prompt"
 
 local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
-TITLE="[%n@%m], %1~"
 
 REPORTTIME=5 # output time statistics when command is running longer than 5 sec
 stty tostop # stop background jobs trying to write to the terminal
@@ -52,9 +52,20 @@ set_title() {
 	esac
 }
 
+userhost() {
+	if [[ -n $SSH_CLIENT ]]
+	then res="[%n@%m]"
+	else res="%n"
+	fi
+	echo $res
+}
+
 precmd () {
-	set_title $TITLE
+	vcs_info
+	seth-house_prompt
+
+	set_title "$(userhost), %1~"
 }
 preexec () {
-	set_title "[%n@%m], {$1}"
+	set_title "$(userhost), {$1}"
 }
