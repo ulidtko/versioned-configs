@@ -1,5 +1,5 @@
 --totals
---languages=c,c++,python
+--languages=c,c++,python,java
 --fields=+iaS
 --extra=+q
 --c++-kinds=+p
