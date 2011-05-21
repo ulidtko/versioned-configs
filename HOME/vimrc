@@ -34,6 +34,9 @@ set wildignore+=*.o
 " executables - over the sources with whatever suffix
 set suffixes+=,
 
+set splitright  " puts new vsplit windows to the right of the current
+set splitbelow  " puts new split windows to the bottom of the current
+
 filetype on
 filetype plugin on
 filetype indent on

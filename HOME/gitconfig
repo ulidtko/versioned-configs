@@ -8,3 +8,7 @@
 	interactive = auto
 [core]
 	excludesfile = ~/.config/git/gitignore
+
+[alias]
+	diffc = diff --cached
+	co = checkout
