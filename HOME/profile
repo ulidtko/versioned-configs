@@ -2,6 +2,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+[ -d "$HOME/android-sdk/platform-tools" ] && PATH="$HOME/android-sdk/platform-tools:$PATH"
+
 export EDITOR=vim
 export PAGER=less
 
