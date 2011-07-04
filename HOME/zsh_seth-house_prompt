@@ -137,7 +137,7 @@ function seth-house_prompt() {
     ### Now, assemble all prompt lines
     lines+=( ${(j::)infoline} )
     [[ -n ${vcs_info_msg_0_} ]] && lines+=( "${blue}${vcs_info_msg_0_}${reset}" )
-    lines+=( "%(1j.${gray}%j${reset} .)%(0?.${white}.${red})%#${reset} " )
+    lines+=( "%(1j.${yellow}%j${reset} .)%(0?.${white}.${red})%#${reset} " )
 
     ### Add dungeon floor to each line
     # Allow easy toggling of pet display
