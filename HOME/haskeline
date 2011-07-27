@@ -1,0 +1,7 @@
+bind: ctrl-left meta-b
+bind: ctrl-right meta-f
+
+keyseq: xterm "\ESC[1;5D" ctrl-left
+keyseq: xterm "\ESC[1;5C" ctrl-right
+keyseq: linux "\ESC[D" ctrl-left
+keyseq: linux "\ESC[C" ctrl-right
