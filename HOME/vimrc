@@ -29,7 +29,7 @@ set noswapfile " load all into memory; let i try this
 set hidden
 
 " when completing in cmdline, ignore some extensions
-set wildignore+=*.o
+set wildignore+=*.o,*.hi
 " ... and give less priority to files without suffix - probably binary
 " executables - over the sources with whatever suffix
 set suffixes+=,
