@@ -69,3 +69,6 @@ precmd () {
 preexec () {
 	set_title "$(userhost), {$1}"
 }
+
+
+alias wget='noglob wget' #-- the usual workaround™ for "no matches found" with URLs
