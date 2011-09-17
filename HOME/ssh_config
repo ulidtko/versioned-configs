@@ -1,4 +1,11 @@
 HashKnownHosts no
 ServerAliveInterval 15
 
+
+Host router
+User root
+Host router-ll
+User root
+
+Host *
 User ulidtko
