@@ -21,3 +21,4 @@ set history-size 2000
 $if python
     TAB: complete
 $endif
+

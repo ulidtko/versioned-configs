@@ -1,2 +1,7 @@
 options(width=120, digits=4)
 options(prompt="R> ")
+
+.Last <- function()
+         if(interactive()) try(savehistory("~/.R_history"))
+
+#.First <- function() if(interactive()) try(loadhistory("~/.R_history"))
