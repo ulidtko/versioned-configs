@@ -21,7 +21,6 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
 
 alias c="true;clear;cd"
-alias df=pydf
 alias R="R --no-save"
 
 svn () {
