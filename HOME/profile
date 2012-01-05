@@ -34,3 +34,11 @@ svn () {
             command svn "$@" ;;
     esac
 }
+
+android_ndk_env () {
+    ANDROID_NDK_ROOT="$HOME/android/ndk-r7/"
+    if [ -d "$ANDROID_NDK_ROOT" ]; then
+        export ANDROID_NDK_ROOT
+        PATH=$PATH:$ANDROID_NDK_ROOT/build/prebuilt/linux-x86/arm-eabi-4.4.0/bin
+    fi
+}
