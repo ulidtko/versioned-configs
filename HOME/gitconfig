@@ -13,3 +13,5 @@
 [alias]
 	diffc = diff --cached
 	co = checkout
+[merge]
+	tool = meld
