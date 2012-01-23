@@ -161,6 +161,17 @@ normal environment call `teardown_test_environment()`.
 Warning: DEBUG_PROPAGATE_EXCEPTIONS has been set to True.
 %(Normal)s""" % _c
 
+
+# Numpy
+######
+try:
+    import numpy
+    trows, tcols = map(int, os.popen('stty size', 'r').read().split())
+    numpy.set_printoptions(linewidth=tcols)
+except ImportError:
+    pass
+
+
 # Start an external editor with \e
 ##################################     
 # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/438813/
