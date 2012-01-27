@@ -1,7 +1,9 @@
 options(width=120, digits=4)
 options(prompt="R> ")
 
-.Last <- function()
-         if(interactive()) try(savehistory("~/.R_history"))
+.Last <- function() if(interactive()) try(savehistory("~/.R_history"))
+.First <- function() if(interactive()) try(loadhistory("~/.R_history"))
 
-#.First <- function() if(interactive()) try(loadhistory("~/.R_history"))
+library(utils) #-- must be loaded before .First() call, because loadhistory is there
+
+library(ggplot2, quietly=TRUE, warn.conflicts=FALSE)
