@@ -2,13 +2,15 @@ HashKnownHosts no
 ServerAliveInterval 15
 
 
-Host router
-User root
-Host router-ll
+Host router router-ll
 User root
 
 Host trevor v800
 User ivanovm
+
+Host knu-ca
+User gr6
+
 
 Host *
 User ulidtko
