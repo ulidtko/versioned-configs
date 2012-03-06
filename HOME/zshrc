@@ -27,7 +27,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' menu select=long
 zstyle ':completion:*' preserve-prefix '//[^/]##/'
-zstyle :compinstall filename '/home/ulidtko/.zshrc'
 
 autoload -Uz compinit
 compinit
