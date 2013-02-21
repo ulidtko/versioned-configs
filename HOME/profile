@@ -30,7 +30,7 @@ fi
 if [ -n "$WINDIR" ]; #-- when on Cygwin
 then
     alias open='cmd /C start'
-:q
+fi
 
 
 svn () {
