@@ -1,0 +1,10 @@
+set disassembly-flavor intel
+
+set prompt \033[01m(gdb)\033[0m 
+#-- note the trailing space    ^ here
+
+#-- this disables the silly pager
+set height 0
+
+set print pretty
+set print array

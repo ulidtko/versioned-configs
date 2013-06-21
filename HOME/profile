@@ -22,6 +22,7 @@ alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
 
 alias c="true;clear;cd"
 alias R="R --no-save"
+alias gdb="gdb -q"
 
 svn () {
     case "$1" in
