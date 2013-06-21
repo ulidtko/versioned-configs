@@ -17,12 +17,22 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 export CFLAGS="-g -Wall -pipe -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
 export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
 
-alias ls="ls --color=auto"
+alias ls="ls --color=auto -hF"
 alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
 
 alias c="true;clear;cd"
 alias R="R --no-save"
 alias gdb="gdb -q"
+
+if [ -x /usr/bin/xdg-open ]; #-- when on a Freedesktop
+then
+    alias open=xdg-open
+fi
+if [ -n "$WINDIR" ]; #-- when on Cygwin
+then
+    alias open='cmd /C start'
+fi
+
 
 svn () {
     case "$1" in
