@@ -13,5 +13,6 @@
 [alias]
 	diffc = diff --cached
 	co = checkout
+	logg = log --color --graph --pretty=format:'%C(cyan dim)%h%Creset -%C(red bold)%d%Creset %s %C(yellow)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [merge]
 	tool = meld
