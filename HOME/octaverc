@@ -1,0 +1,2 @@
+PS1('\001\033[0;32m\002>> \001\033[0m\002')
+warning('off', 'Octave:broadcast')
