@@ -5,3 +5,5 @@ tags
 
 .svn
 *.sw[po]
+*.o
+*.a
