@@ -14,8 +14,8 @@ export LESS="-i -R" # case-insensitive search and term colors in less(1)
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
-export CFLAGS="-g -Wall -pipe -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
-export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
+#export CFLAGS="-g -Wall -pipe -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
+#export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
 
 alias ls="ls --color=auto -hF"
 alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
