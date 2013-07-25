@@ -1,7 +1,10 @@
-This is a repository in which max ulidtko stores some of his config files. He
-finds DVCS very convenient for doing this: one can have backup and easy
-replication and synchronisation of configuration files between several machines
-literally for free.
+This is a repo where I store some of my config files. Nowadays it's trendy
+to name repos of this style `dotfiles` — but I created it well before
+the name became mainstream. Thus, `versioned-configs`.
+
+Version-controlling configuration files is nothing new; in fact, some of the
+most common config files (e.g. bashrc, vimrc, etc) are more of script code
+than "key-value" stores; and version-controlling code is a must.
 
 
 Structure of the repo
@@ -19,15 +22,14 @@ Structure of the repo
 |-- install.sh
 `-- README
 
-Surprisingly enough, HOME denotes your home directory. Files under HOME are
+Surprisingly enough, HOME denotes the home directory. Files under HOME are
 config files with leading dots in their names removed. To use them, you'll need
-to replace your current config files under ~ with symlinks. install.sh will
-help you do that.
+to replace your current config files under ~ with symlinks. install.sh helps to do that.
 
 I'd be glad to know how to make git rewrite files instead of replacing them
 when manipulating the working copy. This way it could be possible to use hard
-links instead of replacing files in ~ with symlinks; if you know relevant git
-option, tell me.
+links instead of symlinking files in ~; if you know an elegant solution with
+hardlinks, please tell me.
 
 
 Using
@@ -37,12 +39,10 @@ Some basic knowledge of git is inherently needed for working with this.
 Procedure is simple: clone the repo, setup the links, and you are done.
 
 $ cd ~/.config
-$ git clone git://github.com/ulidtko/versioned-configs.git versioned
-or
-$ git clone ssh://ulidtko.homelinux.net/~/.config/versioned
-$ cd versioned
+$ git clone git://github.com/ulidtko/versioned-configs.git dotfiles
+$ cd dotfiles
 $ less README  #  ;-)
 $ ./install.sh
 
 
-If you have any questions or comments, contact me: ulidtko@gmail.com.
+If you have any questions or comments, contact me.
