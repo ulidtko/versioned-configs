@@ -20,12 +20,10 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     color_prompt=yes
 else
     color_prompt=
+    case "$TERM" in
+        xterm|xterm-color) color_prompt=yes;;
+    esac
 fi
-
-case "$TERM" in
-    xterm|xterm-color) color_prompt=yes;;
-esac
-
 
 PROMPT_COMMAND=jobs
 if [ "$color_prompt" = yes ]; then
