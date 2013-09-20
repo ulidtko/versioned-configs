@@ -30,7 +30,7 @@ MYDIR="$(cd "$(dirname "$0")" && pwd)"
 			continue
 		fi
 
-		echo -n "installing $name... "
+		echo -n "installing $name... \t"
 		ln -svi "$PWD/$name" $dest
 	done
 )
