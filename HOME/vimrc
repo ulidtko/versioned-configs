@@ -38,6 +38,9 @@ set suffixes+=,
 set splitright  " puts new vsplit windows to the right of the current
 set splitbelow  " puts new split windows to the bottom of the current
 
+execute pathogen#infect("bundle/{}")
+
+syntax on
 filetype on
 filetype plugin on
 filetype indent on
