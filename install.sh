@@ -19,10 +19,18 @@ MYDIR="$(cd "$(dirname "$0")" && pwd)"
 ( cd "$MYDIR"/HOME
 	for name in *
 	do
-		if [ -f "$name" ]
+	        dest=~/.$name
+
+		#-- silently skip symlinks, probably we installed them already
+		[ ! -L $dest ] || continue
+
+		if [ -d $dest ]
 		then
-			echo -n "installing $name... "
-			ln -svi "$PWD/$name" ~/.$name
+			echo "$dest is a plain directory; would not symlink"
+			continue
 		fi
+
+		echo -n "installing $name... "
+		ln -svi "$PWD/$name" $dest
 	done
 )
