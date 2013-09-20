@@ -45,7 +45,8 @@ filetype indent on
 " set foldmethod=syntax
 " set foldcolumn=5
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
-	\let python_highlight_all=1 | compiler python |
+	\let python_highlight_all=1 |
+      " \compiler python |
       " \source "~/.vim/jpythonfold.vim"
         \%foldopen!
 
