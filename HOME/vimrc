@@ -90,6 +90,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " use <C-r>+ to paste from OS C-c pasteboard
 
+set t_Co=256
 colorscheme darkspectrum
 
 "
