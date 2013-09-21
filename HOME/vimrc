@@ -53,7 +53,7 @@ au FileType python set shiftwidth=4 expandtab textwidth=79 |
 au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
 
 nmap <F9> :up<CR>:make<CR>
-nmap <F12> :set background=dark<CR>
+nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
 nmap <F4> :LustyJuggler<CR>
 
 " press space to turn off matches highlighting and clear any message already displayed
