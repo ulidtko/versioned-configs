@@ -1,6 +1,6 @@
 This is a repo where I store some of my config files. Nowadays it's trendy
 to name repos of this style `dotfiles` — but I created it well before
-the name became mainstream. Thus, `versioned-configs`.
+the convention became mainstream. Thus, `versioned-configs`. You know, for compatibility.
 
 Version-controlling configuration files is nothing new; in fact, some of the
 most common config files (e.g. bashrc, vimrc, etc) are more of script code
