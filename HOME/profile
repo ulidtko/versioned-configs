@@ -23,7 +23,7 @@ alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
 alias c="true;clear;cd"
 alias R="R --no-save"
 alias gdb="gdb -q"
-alias nodejs="rlwrap -a -R -c -pGreen -S'nodejs >>> ' -b '(){}[],+−=&^%\$#@\"\\'\;\|' nodejs"
+alias nodejs="rlwrap -a -R -c -pGreen -S'nodejs >>> ' -b '(){}[],+−=&^%\$#@\"\;\|'\' nodejs"
 
 if [ -x /usr/bin/xdg-open ]; #-- when on a Freedesktop
 then
