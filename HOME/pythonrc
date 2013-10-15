@@ -172,6 +172,9 @@ except ImportError:
     pass
 
 
+overstrike = lambda s: str.join('', (c + u"\u0336" for c in s))
+
+
 # Start an external editor with \e
 ##################################     
 # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/438813/
