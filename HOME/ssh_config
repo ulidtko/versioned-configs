@@ -5,13 +5,6 @@ ServerAliveInterval 15
 Host router router-ll
 User root
 
-Host trevor v800
-User ivanovm
-
-Host knu-ca
-User gr6
-
-
-Host *
-User ulidtko
-
+Host github.com
+User git
+IdentityFile ~/.ssh/github_rsa
