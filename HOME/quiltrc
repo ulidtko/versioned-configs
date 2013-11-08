@@ -1,0 +1,3 @@
+QUILT_PATCHES=debian/patches
+QUILT_DIFF_ARGS="--no-timestamps --no-index -pab"
+QUILT_REFRESH_ARGS="--no-timestamps --no-index -pab"
