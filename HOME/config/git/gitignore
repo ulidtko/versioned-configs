@@ -7,3 +7,6 @@ tags
 *.sw[po]
 *.o
 *.a
+*.pyc
+
+*.creator.user
