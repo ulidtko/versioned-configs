@@ -18,7 +18,7 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 #export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
 
 alias ls="ls --color=auto -hF"
-alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn"
+alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn --exclude-dir=.git"
 
 alias c="true;clear;cd"
 alias R="R --no-save"
