@@ -17,12 +17,14 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 #export CFLAGS="-g -Wall -pipe -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
 #export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
 
+alias c="true;clear;cd"
+#-- the above alias is the only custom alias I use (besides the osx-ish `open`)
+#-- what follows is... preferences, the linux way.
 alias ls="ls --color=auto -hF"
 alias grep="grep --color=auto --exclude=tags --exclude-dir=.svn --exclude-dir=.git"
-
-alias c="true;clear;cd"
 alias R="R --no-save"
 alias gdb="gdb -q"
+alias make="make --no-print-dir"
 alias nodejs="rlwrap -a -R -c -pGreen -S'nodejs >>> ' -b '(){}[],+−=&^%\$#@\"\;\|'\' nodejs"
 alias iperl="rlwrap iperl"
 
