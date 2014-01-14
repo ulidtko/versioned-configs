@@ -38,6 +38,16 @@ then
 fi
 
 
+who () {
+    #-- a cludge working around some libvte bug with utmp logging
+    if [ $# -eq 2 ]
+    then
+        whoami
+    else
+        command who "$@"
+    fi
+}
+
 svn () {
     case "$1" in
         log)
