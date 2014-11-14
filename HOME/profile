@@ -2,6 +2,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+[ -d "$HOME/.cabal/bin" ] && PATH="$PATH:$HOME/.cabal/bin"
+
 [ -d "$HOME/android-sdk/tools" ] && PATH="$PATH:$HOME/android-sdk/tools"
 [ -d "$HOME/android-sdk/platform-tools" ] && PATH="$PATH:$HOME/android-sdk/platform-tools"
 
