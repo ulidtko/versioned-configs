@@ -7,3 +7,6 @@
 [submodule "darkspectrum"]
 	path = HOME/vim/bundle/darkspectrum
 	url = git://github.com/vim-scripts/darkspectrum
+[submodule "HOME/vim/bundle/editorconfig-vim"]
+	path = HOME/vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
