@@ -71,3 +71,5 @@ preexec () {
 
 alias wget='noglob wget' #-- the usual workaround™ for "no matches found" with URLs
 alias youtube-dl='noglob youtube-dl --prefer-free-formats --max-quality 22'
+
+source "$HOME/.profile"
