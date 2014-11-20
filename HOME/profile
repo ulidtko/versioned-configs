@@ -1,6 +1,4 @@
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+[ -d "$HOME/bin" ] && PATH="$PATH:$HOME/bin"
 
 [ -d "$HOME/.cabal/bin" ] && PATH="$PATH:$HOME/.cabal/bin"
 
@@ -10,14 +8,12 @@ fi
 export EDITOR=vim
 export PAGER=less
 
-export LESS="-i -R" # case-insensitive search and term colors in less(1)
+# case-insensitive search and term colors in less(1)
+export LESS="-i -R"
 # [ -x `which lesspipe` ] && $(eval lesspipe) # useful input preprocessor for less
 [ -x "$HOME/bin/lesspipe" ] && export LESSOPEN="|lesspipe %s" # an updated version from Gentoo
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
-
-#export CFLAGS="-g -Wall -pipe -Wpointer-arith -Wcast-align -Wcast-qual -Wwrite-strings"
-#export CXXFLAGS="-std=c++0x ${CFLAGS} -Weffc++"
 
 alias c="true;clear;cd"
 #-- the above alias is the only custom alias I use (besides the osx-ish `open`)
@@ -30,14 +26,11 @@ alias make="make --no-print-dir"
 alias nodejs="rlwrap -a -R -c -pGreen -S'nodejs >>> ' -b '(){}[],+−=&^%\$#@\"\;\|'\' nodejs"
 alias iperl="rlwrap iperl"
 
-if [ -x /usr/bin/xdg-open ]; #-- when on a Freedesktop
-then
-    alias open=xdg-open
-fi
-if [ -n "$WINDIR" ]; #-- when on Cygwin
-then
-    alias open='cmd /C start'
-fi
+#-- when on a Freedesktop
+[ -x /usr/bin/xdg-open ] && alias open=xdg-open
+
+#-- when on Cygwin
+[ -n "$WINDIR" ] && alias open='cmd /C start'
 
 
 who () {
