@@ -16,10 +16,35 @@ MYDIR="$(cd "$(dirname "$0")" && pwd)"
 #	done
 #}
 
+if [ "$TERM" = cygwin ]; then
+	symlink () {
+		local linkname="$2"
+		local linktarget="$1"
+
+		if [ $# -gt 2 ]; then
+			echo >&2 "only two argument form is accepted: ln <LINKTARGET> <LINKNAME>"
+			exit 1
+		fi
+
+		local mklinkflags=""
+		[ -d "$linktarget" ] && mklinkflags="/D"
+
+		[ -e "$linkname" ] && {
+			echo >&2 "link name \"$linkname\" is already a file, skipping"
+			return
+		}
+
+		cmd /C mklink $mklinkflags "$(cygpath -w "$linkname")" "$(cygpath -w "$linktarget")"
+	}
+
+else
+	symlink () { ln -svi "$@"; }
+fi
+
 ( cd "$MYDIR"/HOME
 	for name in *
 	do
-	        dest=~/.$name
+		dest=~/.$name
 
 		#-- silently skip symlinks, probably we installed them already
 		[ ! -L $dest ] || continue
@@ -31,6 +56,6 @@ MYDIR="$(cd "$(dirname "$0")" && pwd)"
 		fi
 
 		echo -ne "installing $name... \t"
-		ln -svi "$PWD/$name" "$dest"
+		symlink "$PWD/$name" "$dest"
 	done
 )
