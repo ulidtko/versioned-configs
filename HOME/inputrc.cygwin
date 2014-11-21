@@ -1,0 +1,10 @@
+$include .inputrc
+
+# this is all just for reducing the suffering on Windows
+
+set bell-style visible
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+

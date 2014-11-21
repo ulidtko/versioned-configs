@@ -15,6 +15,9 @@ export LESS="-i -R"
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
+[ "$TERM" = cygwin ] && export INPUTRC=~/.inputrc.cygwin
+
+
 alias c="true;clear;cd"
 #-- the above alias is the only custom alias I use (besides the osx-ish `open`)
 #-- what follows is... preferences, the linux way.
