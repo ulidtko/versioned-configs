@@ -11,6 +11,8 @@ set autoindent copyindent preserveindent
 set tabstop=8 shiftwidth=4 expandtab smarttab
 set softtabstop=0 " what a horrible misfeature
 set wrapmargin=80 textwidth=80
+
+set encoding=utf-8
 set list listchars=tab:→\ ,trail:░
 
 set history=500 " default 20
