@@ -10,3 +10,6 @@
 [submodule "HOME/vim/bundle/editorconfig-vim"]
 	path = HOME/vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "HOME/vim/bundle/vim-hdevtools"]
+	path = HOME/vim/bundle/vim-hdevtools
+	url = https://github.com/bitc/vim-hdevtools.git
