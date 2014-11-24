@@ -12,7 +12,7 @@
 	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "HOME/vim/bundle/vim-hdevtools"]
 	path = HOME/vim/bundle/vim-hdevtools
-	url = https://github.com/bitc/vim-hdevtools.git
+	url = https://github.com/bitc/vim-hdevtools
 [submodule "HOME/vim/bundle/syntastic"]
 	path = HOME/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
