@@ -5,7 +5,7 @@ set showcmd
 set shortmess=nrxltToOI
 
 set hlsearch incsearch
-set ignorecase smartcase " case-insensitive search when patter all lowercase
+set ignorecase smartcase " case-insensitive search when pattern all lowercase
 
 set autoindent copyindent preserveindent
 set tabstop=8 shiftwidth=4 expandtab smarttab
@@ -21,7 +21,7 @@ set undolevels=2000 " default 1000
 set title " set cool terminal titles
 
 set nobackup " use scm, dude
-set noswapfile " load all into memory; let i try this
+set noswapfile " load all into memory; worksforme
 
 " One particularly useful setting is hidden. Its name isn’t too descriptive,
 " though. It hides buffers instead of closing them. This means that you can
@@ -41,6 +41,8 @@ set suffixes+=,
 set splitright  " puts new vsplit windows to the right of the current
 set splitbelow  " puts new split windows to the bottom of the current
 
+
+" plugins entry point
 execute pathogen#infect("bundle/{}")
 
 syntax on
