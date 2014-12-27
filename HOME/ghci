@@ -1,6 +1,5 @@
 :set +m
 :set prompt "ghci> "
 :set stop :list
-:def s const $ return ":step\n:list"
 :def sl const $ return ":steplocal"
 :def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
