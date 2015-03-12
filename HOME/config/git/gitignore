@@ -10,3 +10,4 @@ tags
 *.pyc
 
 *.creator.user
+node_modules
