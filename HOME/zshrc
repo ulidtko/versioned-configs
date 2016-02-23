@@ -34,6 +34,8 @@ compinit
 
 source "$HOME/.zsh_seth-house_prompt"
 
+[ -s /etc/zsh_command_not_found ] && source /etc/zsh_command_not_found
+
 local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
