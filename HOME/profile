@@ -32,7 +32,7 @@ alias iperl="rlwrap iperl"
 eval $(dircolors)
 
 #-- when on a Freedesktop
-[ -x /usr/bin/xdg-open ] && alias open=xdg-open
+[ -x /usr/bin/xdg-open ] && alias open="xdg-open 2&>/dev/null"
 
 #-- when on Cygwin
 [ -n "$WINDIR" ] && alias open='cmd /C start'
