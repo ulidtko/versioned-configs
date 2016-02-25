@@ -61,14 +61,34 @@ userhost() {
 	echo $res
 }
 
+check_stat() {
+	local stop=$((`date "+%s + %N / 1.0e9"`))
+	let local "elapsed = ${stop} - ${cmd_start_time}"
+	(( $elapsed > 15.0 )) && [ "${cmd_abbrev}" != "" ] && \
+	    notify-send -i guake "Done running:" "${cmd_abbrev}\n$(LC_ALL=C printf '%.2f' ${elapsed})s"
+	cmd_abbrev=""
+}
+
+abbreviate_cmd() {
+	local limit=40 #-- characters
+	if [ ${#${1}} -lt $limit ]
+		then printf '$ %s' "$1"
+		else printf '$ %.*s[...]' $((limit - 5)) "$1"
+	fi
+}
+
 precmd () {
 	vcs_info
 	seth-house_prompt
 
 	set_title "$(userhost), %1~"
+
+	if (($+cmd_start_time)); then check_stat; fi
 }
 preexec () {
 	set_title "$(userhost), {$1}"
+	cmd_start_time=$((`date "+%s + %N / 1.0e9"`))
+	cmd_abbrev=$(abbreviate_cmd ${@})
 }
 
 
