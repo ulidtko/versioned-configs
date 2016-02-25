@@ -1,6 +1,6 @@
 [ -d "$HOME/bin" ] && PATH="$PATH:$HOME/bin"
 
-[ -d "$HOME/.cabal/bin" ] && PATH="$PATH:$HOME/.cabal/bin"
+[ -d "$HOME/.cabal/bin" ] && PATH="$HOME/.cabal/bin:$PATH"
 
 [ -d "$HOME/android-sdk/tools" ] && PATH="$PATH:$HOME/android-sdk/tools"
 [ -d "$HOME/android-sdk/platform-tools" ] && PATH="$PATH:$HOME/android-sdk/platform-tools"
