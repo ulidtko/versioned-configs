@@ -32,14 +32,18 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source "$HOME/.zsh_seth-house_prompt"
-
-source "/etc/zsh_command_not_found"
-
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.oh-my-zsh-tweaks"
+ZSH_THEME=wedisagree
+HYPHEN_INSENSITIVE=true
+COMPLETION_WAITING_DOTS=true
+DISABLE_UNTRACKED_FILES_DIRTY=true
+DISABLE_AUTO_TITLE=true
+HIST_STAMPS="yyyy-mm-dd"
+plugins=(git branch command-not-found docker web-search cabal npm pip)
+source $ZSH/oh-my-zsh.sh
 
 local -H TITLE
-
-PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
 
 REPORTTIME=3 # output time statistics when command is running longer than 3 sec
 
@@ -78,9 +82,6 @@ abbreviate_cmd() {
 }
 
 precmd () {
-	vcs_info
-	seth-house_prompt
-
 	set_title "$(userhost), %1~"
 
 	if (($+cmd_start_time)); then check_stat; fi

@@ -19,3 +19,6 @@
 [submodule "HOME/vim/bundle/idris-vim"]
 	path = HOME/vim/bundle/idris-vim
 	url = https://github.com/idris-hackers/idris-vim
+[submodule "HOME/oh-my-zsh"]
+	path = HOME/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
