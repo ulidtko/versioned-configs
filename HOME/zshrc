@@ -41,7 +41,7 @@ local -H TITLE
 
 PROMPT="%F{green}%U%B%n@%m%u%b%f:%F{blue}%B%~%f%b$ "
 
-REPORTTIME=5 # output time statistics when command is running longer than 5 sec
+REPORTTIME=3 # output time statistics when command is running longer than 3 sec
 
 set_title() {
 	case $TERM in
