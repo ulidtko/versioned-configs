@@ -3,3 +3,6 @@
 :set stop :list
 :def sl const $ return ":steplocal"
 :def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
+:def doc \q -> return $ ":! hoogle --info \"" ++ q ++ "\""
+
+:def ghc-vis \_ -> return $ ":script /home/ulidtko/.cabal/share/x86_64-linux-ghc-7.10.2/ghc-vis-0.7.2.9/ghci"
