@@ -1,4 +1,3 @@
-:set +m
 :set prompt "λ➔ "
 :set stop :list
 :def sl const $ return ":steplocal"
