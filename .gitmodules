@@ -22,3 +22,6 @@
 [submodule "HOME/oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "HOME/vim/bundle/boostvim"]
+	path = HOME/vim/bundle/boostvim
+	url = https://github.com/brycelelbach/boostvim
