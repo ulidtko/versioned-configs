@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS=true
 DISABLE_UNTRACKED_FILES_DIRTY=true
 DISABLE_AUTO_TITLE=true
 HIST_STAMPS="yyyy-mm-dd"
-plugins=(git branch command-not-found docker web-search cabal npm pip)
+plugins=(git branch command-not-found docker web-search cabal npm pip virtualbox)
 source $ZSH/oh-my-zsh.sh
 
 local -H TITLE
