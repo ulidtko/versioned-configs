@@ -18,6 +18,10 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# http://superuser.com/q/613685/58037
+ZLE_REMOVE_SUFFIX_CHARS=" ;"
+ZLE_SPACE_SUFFIX_CHARS="&|"
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-- completing %d --'
