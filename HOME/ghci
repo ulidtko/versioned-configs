@@ -1,4 +1,4 @@
-:set prompt "λ➔ "
+:set prompt "λ\nλλ ➔ "
 :set stop :list
 :def sl const $ return ":steplocal"
 :def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
