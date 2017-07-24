@@ -25,3 +25,6 @@
 [submodule "HOME/vim/bundle/boostvim"]
 	path = HOME/vim/bundle/boostvim
 	url = https://github.com/brycelelbach/boostvim
+[submodule "HOME/vim/bundle/YouCompleteMe"]
+	path = HOME/vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
