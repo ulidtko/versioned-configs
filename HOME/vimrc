@@ -10,10 +10,10 @@ set ignorecase smartcase " case-insensitive search when pattern all lowercase
 set autoindent copyindent preserveindent
 set tabstop=8 shiftwidth=4 expandtab smarttab
 set softtabstop=0 " what a horrible misfeature
-set wrapmargin=80 textwidth=80
+set wrapmargin=120 textwidth=120
 
 set encoding=utf-8
-set list listchars=tab:→\ ,trail:░
+set list listchars=tab:⇥\ ,trail:░
 
 set history=500 " default 20
 set undolevels=2000 " default 1000
@@ -59,6 +59,19 @@ au FileType python set shiftwidth=4 expandtab textwidth=79 |
         \%foldopen!
 
 au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
+
+" Syntastic config
+let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_error_symbol = "⚬"
+
+" YouCompleteMe config
+let g:ycm_always_populate_location_list = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+nmap <leader>g :YcmCompleter GoTo<CR>
+nmap <leader>t :YcmCompleter GetType<CR>
 
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
