@@ -34,3 +34,6 @@
 [submodule "HOME/vim/bundle/vim-airline"]
 	path = HOME/vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "HOME/vim/bundle/ctrlp.vim"]
+	path = HOME/vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
