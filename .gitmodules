@@ -28,3 +28,6 @@
 [submodule "HOME/vim/bundle/YouCompleteMe"]
 	path = HOME/vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "HOME/vim/bundle/vim-gitgutter"]
+	path = HOME/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
