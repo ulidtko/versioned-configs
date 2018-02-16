@@ -29,3 +29,8 @@
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
+[rerere]
+	enabled = true
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
