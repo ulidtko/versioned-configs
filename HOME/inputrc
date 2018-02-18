@@ -1,5 +1,6 @@
 $include /etc/inputrc
 
+"\e[3~": delete-char
 # Control-DEL
 "\e[3;5~": kill-word
 
