@@ -37,3 +37,12 @@
 [submodule "HOME/vim/bundle/ctrlp.vim"]
 	path = HOME/vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "HOME/vim/bundle/ghcmod-vim"]
+	path = HOME/vim/bundle/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim
+[submodule "HOME/vim/bundle/vimproc.vim"]
+	path = HOME/vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim
+[submodule "HOME/vim/bundle/neco-ghc"]
+	path = HOME/vim/bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc
