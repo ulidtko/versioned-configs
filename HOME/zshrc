@@ -54,7 +54,7 @@ REPORTTIME=3 # output time statistics when command is running longer than 3 sec
 set_title() {
 	case $TERM in
 	xterm*|rxvt*)
-		print -Pn "\e]0;$@\a"
+		print -n "\e]0;$@\a"
 		;;
 	*)
 		;;
@@ -63,10 +63,9 @@ set_title() {
 
 userhost() {
 	if [[ -n $SSH_CLIENT ]]
-	then res="[%n@%m]"
-	else res="%n"
+	then print -P "[%n@%m]"
+	else print -P "%n"
 	fi
-	echo $res
 }
 
 check_stat() {
@@ -86,12 +85,12 @@ abbreviate_cmd() {
 }
 
 precmd () {
-	set_title "$(userhost), %1~"
+	set_title "$(userhost), $(print -P %1~)"
 
 	if (($+cmd_start_time)); then check_stat; fi
 }
 preexec () {
-	set_title "$(userhost), {$1}"
+	set_title "$(userhost), {$(abbreviate_cmd "$1")}"
 	cmd_start_time=$((`date "+%s + %N / 1.0e9"`))
 	cmd_abbrev=$(abbreviate_cmd ${@})
 }
