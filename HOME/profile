@@ -1,4 +1,4 @@
-[ -d "$HOME/bin" ] && [[ :"$PATH": == *:"$HOME/bin":* ]] || PATH="$PATH:$HOME/bin"
+[ -d "$HOME/bin" ] && [[ :"$PATH": == *:"$HOME/bin":* ]] || PATH+=":$HOME/bin"
 
 [ -d "$HOME/.cabal/bin" ] && [[ :"$PATH": == *:"$HOME/.cabal/bin":* ]] || PATH="$HOME/.cabal/bin:$PATH"
 

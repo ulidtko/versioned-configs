@@ -66,12 +66,32 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_error_symbol = "⚬"
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 " YouCompleteMe config
 let g:ycm_always_populate_location_list = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
+
+let g:hdevtools_options = '--nostack'
+au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
+au FileType haskell noremap <buffer><localleader>i :HdevtoolsInfo<CR>
+au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
+au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
+au FileType haskell nnoremap <buffer><silent><F2> :HdevtoolsClear<CR>
+
+
+let g:hs_highlight_types = 1
+let g:hs_highlight_boolean = 1
+let g:hs_highlight_more_types = 1
+
+let g:necoghc_enable_detailed_browse = 1
+
 
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>

@@ -80,7 +80,7 @@ atexit.register(savehist)
 ######################
 
 sys.ps1 = '%s>>> %s' % (_c['LightGreen'], _c['Normal'])
-sys.ps2 = '%s... %s' % (_c['LightRed'], _c['Normal'])
+sys.ps2 = '%s... %s' % (_c['Green'], _c['Normal'])
 
 # Enable Pretty Printing for stdout
 ###################################

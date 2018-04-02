@@ -16,9 +16,6 @@
 [submodule "HOME/vim/bundle/syntastic"]
 	path = HOME/vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "HOME/vim/bundle/idris-vim"]
-	path = HOME/vim/bundle/idris-vim
-	url = https://github.com/idris-hackers/idris-vim
 [submodule "HOME/oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
