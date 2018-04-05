@@ -1,6 +1,7 @@
 [ -d "$HOME/bin" ] && [[ :"$PATH": == *:"$HOME/bin":* ]] || PATH+=":$HOME/bin"
 
 [ -d "$HOME/.cabal/bin" ] && [[ :"$PATH": == *:"$HOME/.cabal/bin":* ]] || PATH="$HOME/.cabal/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && [[ :"$PATH": == *:"$HOME/.local/bin":* ]] || PATH="$HOME/.local/bin:$PATH"
 
 [ -d "$HOME/android-sdk/tools" ] && PATH="$PATH:$HOME/android-sdk/tools"
 [ -d "$HOME/android-sdk/platform-tools" ] && PATH="$PATH:$HOME/android-sdk/platform-tools"
@@ -10,8 +11,9 @@ export PAGER=less
 
 # case-insensitive search and term colors in less(1)
 export LESS="-i -R"
-# [ -x `which lesspipe` ] && $(eval lesspipe) # useful input preprocessor for less
-[ -x "$HOME/bin/lesspipe" ] && export LESSOPEN="|lesspipe %s" # an updated version from Gentoo
+# an input preprocessor
+which lesspipe >/dev/null && export LESSOPEN="|lesspipe %s"
+which lesspipe.sh >/dev/null && eval "$(lesspipe.sh)"
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
