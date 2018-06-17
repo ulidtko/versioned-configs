@@ -50,17 +50,6 @@ who () {
     fi
 }
 
-svn () {
-    case "$1" in
-        log)
-            command svn "$@" --limit 20 | less -FX ;;
-        diff|blame|annotate)
-            command svn "$@" | less -FX ;;
-        *)
-            command svn "$@" ;;
-    esac
-}
-
 android_ndk_env () {
     ANDROID_NDK_ROOT="$HOME/android/ndk-r7/"
     if [ -d "$ANDROID_NDK_ROOT" ]; then
