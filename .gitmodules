@@ -53,3 +53,6 @@
 [submodule "HOME/vim/bundle/nerdtree-git-plugin"]
 	path = HOME/vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "HOME/vim/bundle/nerdcommenter"]
+	path = HOME/vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
