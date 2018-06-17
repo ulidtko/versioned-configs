@@ -52,13 +52,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" set foldmethod=syntax
-" set foldcolumn=5
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
-	\let python_highlight_all=1 |
-      " \compiler python |
-      " \source "~/.vim/jpythonfold.vim"
-        \%foldopen!
+	\let python_highlight_all=1
 
 au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
 
@@ -80,7 +75,12 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
 
+
 let g:hdevtools_options = '--nostack'
+let g:necoghc_enable_detailed_browse = 1
+let g:hs_highlight_types = 1
+let g:hs_highlight_boolean = 1
+let g:hs_highlight_more_types = 1
 au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
 au FileType haskell noremap <buffer><localleader>i :HdevtoolsInfo<CR>
 au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
@@ -88,19 +88,11 @@ au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 au FileType haskell nnoremap <buffer><silent><F2> :HdevtoolsClear<CR>
 
 
-let g:hs_highlight_types = 1
-let g:hs_highlight_boolean = 1
-let g:hs_highlight_more_types = 1
-
-let g:necoghc_enable_detailed_browse = 1
-
-
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
-nmap <F4> :LustyJuggler<CR>
 
-" press space to turn off matches highlighting and clear any message already displayed
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" a Clear-All approximation
+nnoremap <silent> <Space> :nohlsearch<Bar>:lclose<CR>:cclose<CR>:echo<CR>
 
 " window navigation
 "nmap <C-h> <C-w>h
