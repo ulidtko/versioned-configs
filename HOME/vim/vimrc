@@ -128,7 +128,13 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " use <C-r>+ to paste from OS C-c pasteboard
 
 set t_Co=256
-colorscheme darkspectrum
+set termguicolors
+"colorscheme darkspectrum
+"colorscheme solarized
+"colorscheme base16-brewer
+"colorscheme base16-chalk
+"colorscheme base16-gruvbox-dark-pale
+colorscheme base16-material
 
 "
 "                       8888  8888888
