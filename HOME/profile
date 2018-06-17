@@ -12,8 +12,8 @@ export PAGER=less
 # case-insensitive search and term colors in less(1)
 export LESS="-i -R"
 # an input preprocessor
-which lesspipe >/dev/null && export LESSOPEN="|lesspipe %s"
-which lesspipe.sh >/dev/null && eval "$(lesspipe.sh)"
+[ -x `which lesspipe    >/dev/null` ] && export LESSOPEN="|lesspipe %s"
+[ -x `which lesspipe.sh >/dev/null` ] && export LESSOPEN="|lesspipe.sh %s"
 
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
