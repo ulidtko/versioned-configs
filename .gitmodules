@@ -56,3 +56,6 @@
 [submodule "HOME/vim/bundle/nerdcommenter"]
 	path = HOME/vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule "HOME/vim/bundle/Dockerfile.vim"]
+	path = HOME/vim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
