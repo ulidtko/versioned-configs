@@ -3,8 +3,23 @@ set disassembly-flavor intel
 set prompt \033[01m(gdb)\033[0m 
 #-- note the trailing space    ^ here
 
-#-- this disables the silly pager
-set height 0
+#-- disable the dumb pager
+set pagination off
 
 set print pretty
 set print array
+
+define source_if_exists
+    #-- Yes this IS gross. The whole gdb UI is abhorrent.
+    shell { [[ -f $1 ]] && echo source $1; } > /tmp/gdbinit.source.x9iyYc
+    source /tmp/gdbinit.source.x9iyYc
+end
+
+#-- PEDA -- https://github.com/longld/peda
+source_if_exists ~/src/peda/peda.py
+
+#-- Gef! -- https://github.com/hugsy/gef/raw/master/gef.py
+source_if_exists ~/.gdbinit-gef.py
+
+#-- KDevelop's GDB printers for Qt stuff
+source_if_exists ~/src/kdevelop-gdb-printers/gdbinit
