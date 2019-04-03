@@ -43,6 +43,12 @@ set suffixes+=,
 set splitright  " puts new vsplit windows to the right of the current
 set splitbelow  " puts new split windows to the bottom of the current
 
+" this vimrc is shared with Nvim
+if has('nvim')
+    set runtimepath^=~/.vim
+    let &packpath = &runtimepath
+    set shada=!,'100,<50,s10,h,n~/.config/nvim/shada
+endif
 
 " plugins entry point
 execute pathogen#infect("bundle/{}")
@@ -75,6 +81,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
+nmap <leader>n :lnext<CR>
 
 
 let g:hdevtools_options = '--nostack'
@@ -89,17 +96,12 @@ au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 au FileType haskell nnoremap <buffer><silent><F2> :HdevtoolsClear<CR>
 
 
+nmap <F2> :NERDTreeToggle<CR>
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
 
 " a Clear-All approximation
 nnoremap <silent> <Space> :nohlsearch<Bar>:lclose<CR>:cclose<CR>:echo<CR>
-
-" window navigation
-"nmap <C-h> <C-w>h
-"nmap <C-j> <C-w>j
-"nmap <C-k> <C-w>k
-"nmap <C-l> <C-w>l
 
 " :TOhtml settings
 let html_use_css = 1
@@ -127,7 +129,6 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " use <C-r>+ to paste from OS C-c pasteboard
 
-set t_Co=256
 set termguicolors
 "colorscheme darkspectrum
 "colorscheme solarized
