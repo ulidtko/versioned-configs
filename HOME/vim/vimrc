@@ -25,14 +25,7 @@ set noswapfile " load all into memory; worksforme
 
 set viminfo+=n~/.vim/viminfo
 
-" One particularly useful setting is hidden. Its name isn’t too descriptive,
-" though. It hides buffers instead of closing them. This means that you can
-" have unwritten changes to a file and open a new file using :e, without being
-" forced to write or undo your changes first. Also, undo buffers and marks are
-" preserved while the buffer is open. This is an absolute must-have.
-"
-" http://nvie.com/posts/how-i-boosted-my-vim/
-set hidden
+set hidden " hide buffers instead of closing
 
 " when completing in cmdline, ignore some extensions
 set wildignore+=*.o,*.hi
@@ -40,30 +33,47 @@ set wildignore+=*.o,*.hi
 " executables - over the sources with whatever suffix
 set suffixes+=,
 
-set splitright  " puts new vsplit windows to the right of the current
-set splitbelow  " puts new split windows to the bottom of the current
+set splitright splitbelow
 
-" this vimrc is shared with Nvim
+" menu - show popup menu with possible completions
+" menuone - show menu even if single completion available
+" preview - show preview window with additional information
+" longest - complete the longest common prefix of matches
+set completeopt=menu,preview,longest
+
+
+" -=====================- "
+" === Plugins section === "
+" -=====================- "
+
+" Neovim stuff
 if has('nvim')
     set runtimepath^=~/.vim
     let &packpath = &runtimepath
     set shada=!,'100,<50,s10,h,n~/.config/nvim/shada
 endif
 
-" plugins entry point
+" Load everything under vim/bundle/
 execute pathogen#infect("bundle/{}")
 
+" classic stuff
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
 
+" Generic per-language defaults
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
 	\let python_highlight_all=1
 
 au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
 
-" Syntastic config
+
+" -===============================================- "
+" === Completions, linters, plugins... settings === "
+" -===============================================- "
+
+" Syntastic
 let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11'
@@ -74,7 +84,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-" YouCompleteMe config
+" YouCompleteMe
 let g:ycm_always_populate_location_list = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -83,7 +93,7 @@ nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
 nmap <leader>n :lnext<CR>
 
-
+" Haskell goodies
 let g:hdevtools_options = '--nostack'
 let g:necoghc_enable_detailed_browse = 1
 let g:hs_highlight_types = 1
@@ -95,27 +105,7 @@ au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
 au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 au FileType haskell nnoremap <buffer><silent><F2> :HdevtoolsClear<CR>
 
-
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F9> :up<CR>:make<CR>
-nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
-
-" a Clear-All approximation
-nnoremap <silent> <Space> :nohlsearch<Bar>:lclose<CR>:cclose<CR>:echo<CR>
-
-" :TOhtml settings
-let html_use_css = 1
-let html_dynamic_folds = 1
-
-" menu - show popup menu with possible completions
-" menuone - show menu even if single completion available
-" preview - show preview window with additional information
-" longest - complete the longest common prefix of matches
-set completeopt=menu,preview,longest
-
-"
-" == CPP omni completion ==
-"
+" OmniCpp baggage
 let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
 set tags+=tags,./tags
 
@@ -126,8 +116,29 @@ let OmniCpp_LocalSearchDecl = 1
 let OmniCpp_DefaultNamespaces = ["std"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+" :TOhtml settings
+let html_use_css = 1
+let html_dynamic_folds = 1
 
-" use <C-r>+ to paste from OS C-c pasteboard
+
+" -=================- "
+" === Keybindings === "
+" -=================- "
+
+" Reminder: to paste from OS clipboard, use the + and * special registers: <C-r>+
+
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F9> :up<CR>:make<CR>
+nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
+
+" a Clear-All approximation
+" TODO join into sensible's Ctrl-L
+nnoremap <silent> <Space> :nohlsearch<Bar>:lclose<CR>:cclose<CR>:echo<CR>
+
+
+" -============- "
+" === Colors === "
+" -============- "
 
 set termguicolors
 "colorscheme darkspectrum
@@ -137,6 +148,9 @@ set termguicolors
 "colorscheme base16-gruvbox-dark-pale
 colorscheme base16-material
 
+" Thanks for reading! ^__^
+"
+" Maybe hit a star on github.com/ulidtko/versioned-configs ;)
 "
 "                       8888  8888888
 "                  888888888888888888888888
