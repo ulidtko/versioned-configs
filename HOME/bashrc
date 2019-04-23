@@ -3,6 +3,7 @@
 
 source /etc/bash.bashrc
 
+{ FTC=/usr/share/doc/find-the-command/ftc.bash; [[ -r $FTC ]] && source $FTC; unset FTC; }
 
 # append to the history file, don't overwrite it
 shopt -s histappend

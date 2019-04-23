@@ -55,6 +55,8 @@ plugins=(git branch
 )
 source $ZSH/oh-my-zsh.sh
 
+{ FTC=/usr/share/doc/find-the-command/ftc.zsh; [[ -r $FTC ]] && source $FTC; unset FTC; }
+
 local -H TITLE
 
 REPORTTIME=3 # output time statistics when command is running longer than 3 sec
