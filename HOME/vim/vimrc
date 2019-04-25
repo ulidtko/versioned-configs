@@ -41,6 +41,8 @@ set splitright splitbelow
 " longest - complete the longest common prefix of matches
 set completeopt=menu,preview,longest
 
+" session options
+set ssop=sesdir,folds,buffers,winpos
 
 " -=====================- "
 " === Plugins section === "
@@ -66,8 +68,6 @@ filetype indent on
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
 	\let python_highlight_all=1
 
-au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
-
 
 " -===============================================- "
 " === Completions, linters, plugins... settings === "
@@ -76,11 +76,13 @@ au FileType t2t set makeprg=txt2tags\ -t\ html\ %\;open\ %<.html
 " Syntastic
 let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-let g:syntastic_error_symbol = "⚬"
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
+let g:syntastic_python_pylint_exec = 'pylint3'
+
+let g:syntastic_error_symbol = "⚬"
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
@@ -89,21 +91,23 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
+"let g:ycm_key_invoke_completion = '<C-Space>' " -- default
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
 nmap <leader>n :lnext<CR>
 
 " Haskell goodies
-let g:hdevtools_options = '--nostack'
+let g:hdevtools_options = '--nostack -g-Wall -g-fdefer-type-errors'
 let g:necoghc_enable_detailed_browse = 1
 let g:hs_highlight_types = 1
 let g:hs_highlight_boolean = 1
 let g:hs_highlight_more_types = 1
-au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
 au FileType haskell noremap <buffer><localleader>i :HdevtoolsInfo<CR>
+au FileType haskell setlocal omnifunc=necoghc#omnifunc
+au FileType haskell source ~/.vim/bundle/ghcmod-vim/after/ftplugin/haskell/ghcmod.vim
+au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
 au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
 au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
-au FileType haskell nnoremap <buffer><silent><F2> :HdevtoolsClear<CR>
 
 " OmniCpp baggage
 let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
@@ -125,9 +129,12 @@ let html_dynamic_folds = 1
 " === Keybindings === "
 " -=================- "
 
-" Reminder: to paste from OS clipboard, use the + and * special registers: <C-r>+
+" Reminder: to paste from the OS clipboards, use the + and * special registers:
+" [insert] <C-r>+ | [normal] "+p -- pastes the Ctrl-V buffer
+" [insert] <C-r>* | [normal] "*p -- pastes the middle-click buffer
 
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F5> :Gina status<CR>
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
 
