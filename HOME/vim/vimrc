@@ -68,6 +68,14 @@ filetype indent on
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
 	\let python_highlight_all=1
 
+call gina#custom#mapping#nmap(
+    \ 'status', 'C', ':<C-u>Gina commit<CR>',
+    \ { 'nnoremap': 1, 'silent': 1},
+    \)
+call gina#custom#mapping#nmap(
+    \ 'commit', 'C', ':<C-u>Gina status<CR>',
+    \ { 'nnoremap': 1, 'silent': 1},
+    \)
 
 " -===============================================- "
 " === Completions, linters, plugins... settings === "
