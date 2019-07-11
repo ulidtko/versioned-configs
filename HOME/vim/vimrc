@@ -86,9 +86,15 @@ let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
+let g:syntastic_python_checkers = ['mypy', 'python', 'pylint'] " flake8, mypy
 let g:syntastic_python_pylint_exec = 'pylint3'
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_mypy_args = '--ignore-missing-imports'
 
 let g:syntastic_error_symbol = "⚬"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "\u1f928"
+let g:syntastic_style_warning_symbol = "\u1f928"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
