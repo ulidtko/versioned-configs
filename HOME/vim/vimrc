@@ -77,6 +77,9 @@ call gina#custom#mapping#nmap(
     \ { 'nnoremap': 1, 'silent': 1},
     \)
 
+" Autoload the session file upon :cd and on load (if there's one)
+autocmd DirChanged * nested :call ObsessionLoad()
+
 " -===============================================- "
 " === Completions, linters, plugins... settings === "
 " -===============================================- "

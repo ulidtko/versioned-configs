@@ -68,3 +68,9 @@
 [submodule "HOME/vim/bundle/deoplete.nvim"]
 	path = HOME/vim/bundle/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
+[submodule "HOME/vim/bundle/vim-unimpaired"]
+	path = HOME/vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "HOME/vim/bundle/vim-obsession"]
+	path = HOME/vim/bundle/vim-obsession
+	url = https://github.com/vphantom/vim-obsession
