@@ -74,3 +74,6 @@
 [submodule "HOME/vim/bundle/vim-obsession"]
 	path = HOME/vim/bundle/vim-obsession
 	url = https://github.com/vphantom/vim-obsession
+[submodule "HOME/vim/bundle/vim-pencil"]
+	path = HOME/vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
