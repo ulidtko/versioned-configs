@@ -11,14 +11,14 @@ set print array
 
 define source_if_exists
     #-- Yes this IS gross. The whole gdb UI is abhorrent.
-    shell { [[ -f $1 ]] && echo source $1; } > /tmp/gdbinit.source.x9iyYc
+    shell { test -f $arg0 && echo source $arg0; } > /tmp/gdbinit.source.x9iyYc
     source /tmp/gdbinit.source.x9iyYc
 end
 
 #-- PEDA -- https://github.com/longld/peda
 source_if_exists ~/src/peda/peda.py
 
-#-- Gef! -- https://github.com/hugsy/gef/raw/master/gef.py
+#-- Gef! -- wget https://github.com/hugsy/gef/raw/master/gef.py -qO ~/.gdbinit-gef.py
 source_if_exists ~/.gdbinit-gef.py
 
 #-- KDevelop's GDB printers for Qt stuff
