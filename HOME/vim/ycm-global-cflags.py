@@ -20,8 +20,8 @@ flags = [
     #'-stdlib=libc++',
     '-x',
     'c++',
-    '-I',
-    '.',
+    '-I', '.',
+    '-I', './include',
     #'-isystem', '/usr/lib/c++/v1'
 ]
 
