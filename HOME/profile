@@ -6,6 +6,8 @@
 export GOPATH="$HOME/src/GO"
 [ -d "$HOME/src/GO/bin" ] && [[ :"$PATH": == *:"$HOME/src/GO/bin":* ]] || PATH="$PATH:$HOME/src/GO/bin"
 
+for d in "$HOME"/.gem/ruby/*/bin; do [[ :"$PATH": == *:"$d":* ]] || PATH="$PATH:$d"; done
+
 [ -d "$HOME/android-sdk/tools" ] && PATH="$PATH:$HOME/android-sdk/tools"
 [ -d "$HOME/android-sdk/platform-tools" ] && PATH="$PATH:$HOME/android-sdk/platform-tools"
 
@@ -42,23 +44,5 @@ eval $(dircolors)
 #-- when on Cygwin
 [ -n "$WINDIR" ] && alias open='cmd /C start'
 
-
-#who () {
-#    #-- a cludge working around some libvte bug with utmp logging
-#    if [ $# -eq 2 ]
-#    then
-#        whoami
-#    else
-#        command who "$@"
-#    fi
-#}
-
-android_ndk_env () {
-    ANDROID_NDK_ROOT="$HOME/android/ndk-r7/"
-    if [ -d "$ANDROID_NDK_ROOT" ]; then
-        export ANDROID_NDK_ROOT
-        PATH=$PATH:$ANDROID_NDK_ROOT/build/prebuilt/linux-x86/arm-eabi-4.4.0/bin
-    fi
-}
 
 #-- vim: filetype=sh et ts=4 sw=4
