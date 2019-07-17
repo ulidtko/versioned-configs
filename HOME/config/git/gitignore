@@ -11,3 +11,5 @@ tags
 
 *.creator.user
 node_modules
+
+.session.vim
