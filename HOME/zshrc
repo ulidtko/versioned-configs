@@ -22,6 +22,25 @@ bindkey "^X^E" edit-command-line
 #ZLE_REMOVE_SUFFIX_CHARS=" ;"
 #ZLE_SPACE_SUFFIX_CHARS="&|"
 
+#-- https://superuser.com/a/691603/58037
+bindkey "\e[A" up-line-or-local-history   # up
+bindkey "\e[B" down-line-or-local-history # down
+bindkey "\e[1;2A" up-line-or-history      # shift-up
+bindkey "\e[1;2B" down-line-or-history    # shift-down
+
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' format '-- completing %d --'
