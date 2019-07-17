@@ -71,9 +71,9 @@
 [submodule "HOME/vim/bundle/vim-unimpaired"]
 	path = HOME/vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-[submodule "HOME/vim/bundle/vim-obsession"]
-	path = HOME/vim/bundle/vim-obsession
-	url = https://github.com/vphantom/vim-obsession
 [submodule "HOME/vim/bundle/vim-pencil"]
 	path = HOME/vim/bundle/vim-pencil
 	url = https://github.com/reedes/vim-pencil
+[submodule "HOME/vim/bundle/vim-workspace"]
+	path = HOME/vim/bundle/vim-workspace
+	url = https://github.com/thaerkh/vim-workspace

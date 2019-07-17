@@ -41,8 +41,6 @@ set splitright splitbelow
 " longest - complete the longest common prefix of matches
 set completeopt=menu,preview,longest
 
-" session options
-set ssop=sesdir,folds,buffers,winpos
 
 " -=====================- "
 " === Plugins section === "
@@ -58,11 +56,9 @@ endif
 " Load everything under vim/bundle/
 execute pathogen#infect("bundle/{}")
 
-" classic stuff
+" classic
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " Generic per-language defaults
 au FileType python set shiftwidth=4 expandtab textwidth=79 |
@@ -76,9 +72,6 @@ call gina#custom#mapping#nmap(
     \ 'commit', 'C', ':<C-u>Gina status<CR>',
     \ { 'nnoremap': 1, 'silent': 1},
     \)
-
-" Autoload the session file upon :cd and on load (if there's one)
-autocmd DirChanged * nested :call ObsessionLoad()
 
 " -===============================================- "
 " === Completions, linters, plugins... settings === "
@@ -140,6 +133,16 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " :TOhtml settings
 let html_use_css = 1
 let html_dynamic_folds = 1
+
+" autoloading & autosaving sessions, woooo!
+let g:workspace_session_name = '.session.vim'
+let g:workspace_session_disable_on_args = 1
+if has('nvim')
+    au DirChanged * ++nested
+        \ if empty(v:this_session) && filereadable(g:workspace_session_name) |
+        \   exe ':source' . g:workspace_session_name |
+        \ endif
+endif
 
 
 " -=================- "
