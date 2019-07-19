@@ -8,7 +8,7 @@
 	interactive = auto
 [core]
 	pager = less -FRSX
-	excludesfile = ~/.config/git/gitignore
+	excludesfile = ~/.gitignore_global
 
 [alias]
 	co = checkout
