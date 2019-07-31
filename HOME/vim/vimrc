@@ -140,10 +140,12 @@ let g:workspace_session_disable_on_args = 1
 if has('nvim')
     au DirChanged * ++nested
         \ if empty(v:this_session) && filereadable(g:workspace_session_name) |
-        \   exe ':source' . g:workspace_session_name |
+        \   exe ':source ' . g:workspace_session_name |
         \ endif
 endif
 
+let g:ctrlp_max_files = 80000
+let g:ctrlp_lazy_update = 180 " typing timeout, ms
 
 " -=================- "
 " === Keybindings === "
@@ -157,6 +159,8 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F5> :Gina status<CR>
 nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
+nnoremap <C-t> :CtrlPLastMode<CR>
+nnoremap <C-p> :CtrlPMixed<CR>
 
 " a Clear-All approximation
 " TODO join into sensible's Ctrl-L
