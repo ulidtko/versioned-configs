@@ -61,10 +61,9 @@ C_BASE_FLAGS = [
     '-Wall',
     '-Wextra',
     #'-Werror',
+    '-xc',
     '-std=c11',
     '-I/usr/include/',
-    '-I./include',
-    '-I.',
 ]
 CPP_BASE_FLAGS = [
     '-xc++', '-std=c++1z',
@@ -127,44 +126,33 @@ def WalkChildrenLevel(d):
     for item in os.listdir(d):
         yield path.join(d, item)
 
-def WalkCompose(walk1, walk2):
-    """ Composes two walks """
-    return lambda start_dir: (y for x in walk1(start_dir) for y in walk2(x))
-
-WalkExample0 = lambda start_dir: []
-WalkExample1 = lambda start_dir: WalkChildrenLevel(start_dir)
-WalkExample2 = WalkChildrenLevel
-WalkExample3 = WalkCompose(WalkParentDirs, WalkChildrenLevel)
-
 def AbsolutizeFlags(flags, working_directory):
     """ Resolve filenames in flags e.g. -I to absolute """
     if not working_directory:
         return list(flags)
     result = []
     path_flags = ['-isystem', '-I', '-iquote', '--sysroot=']
-    flag_iter = iter(flags)
-    try:
-        while 1:
-            flag = next(flag_iter)
-
-            if flag in path_flags:
-                arg = next(flag_iter)
-                if not path.isabs(arg):
-                    arg = os.path.join(working_directory, arg)
-
-                result.append(flag)
-                result.append(arg)
-                continue
-
-            for p in path_flags:
-                if flag.startswith(p):
-                    arg = flag[len(p):]
-                    if not path.isabs(arg):
-                        arg = os.path.join(working_directory, arg)
-                    result.append(p + arg)
-                    break
-    except StopIteration:
-        pass
+    skip_next = False
+    for i, flag in enumerate(flags):
+        if skip_next:
+            skip_next = False
+            continue
+        if flag in path_flags:
+            arg = flags[i+1]
+            if not path.isabs(arg):
+                arg = path.join(working_directory, arg)
+            result.append(flag)
+            result.append(arg)
+            skip_next = True
+            continue
+        elif any(flag.startswith(p) for p in path_flags):
+            p = next(p for p in path_flags if flag.startswith(p))
+            arg = flag[len(p):]
+            if not path.isabs(arg):
+                arg = path.join(working_directory, arg)
+            result.append(p + arg)
+        else:
+            result.append(flag)
     return result
 
 def GuessProjectRoot(query_dir):
@@ -235,9 +223,10 @@ def Settings(language=None, filename=None, _client_data=None, **_kwargs):
 
     global compilation_db
     if not compilation_db:
-        # NOTE: it accepts the containing directory, not compile_commands.json!
-        compilation_db = ycm_core.CompilationDatabase(build_dir)
-        logging.info("Compilation DB in %s", compilation_db.database_directory)
+        if path.exists(path.join(build_dir, 'compile_commands.json')):
+            # NOTE: it accepts the containing directory, not compile_commands.json!
+            compilation_db = ycm_core.CompilationDatabase(build_dir)
+            logging.info("Compilation DB in %s", compilation_db.database_directory)
 
     if compilation_db:
         logging.info("Looking up file %s", filename)
@@ -250,12 +239,15 @@ def Settings(language=None, filename=None, _client_data=None, **_kwargs):
     else:
         if AppearsAsSrcFile(filename):
             final_flags = LookupBaseFlags(filename)
+        else:
+            final_flags = []
 
+        logging.info("Trying .clang_complete files...")
         final_flags += LookupClangComplete(build_dir) or []
 
-        relative_to = DIR_OF_THIS_SCRIPT
-        final_flags = AbsolutizeFlags(final_flags, relative_to)
+        final_flags = AbsolutizeFlags(final_flags, project_root)
 
+    logging.info("[custom conf] returning %s", final_flags)
     return {
         'flags': final_flags,
         'do_cache': True,
