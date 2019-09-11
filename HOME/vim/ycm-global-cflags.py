@@ -1,19 +1,60 @@
-#-- Inspired by:
-#-- https://jonasdevlieghere.com/a-better-youcompleteme-config/
-#-- https://gist.github.com/locojay/4950253
+"""
+                    ==== SYNOPSYS ====
 
+THIS is the dirty old rug where [YCM][] presupposes you put
+all your C++-related violence under.
+
+[YCM]: https://github.com/ycm-core/YouCompleteMe
+
+YouCompleteMe is a code navigation and completion plugin for Vim.
+
+To be any useful, it needs to understand the build system and the
+compile flags to intelligibly parse any file.
+
+## Why do I have to do it my own way ##
+When building people's code, I prefer an **out-of-source build** if that's
+available. It's just too easy to lose track of the build state, *what have you
+done* and when, especially if the build doesn't work from the 1st try. And it's
+*soooo* easy to wipe the separate build-directory to reset to a known sane state
+(without nuking and redoing the whole git repo), knowing you lose nothing,
+faster than `git clean -fxd`.
+
+Unfortunately, tooling is usually nearly oblivious of out-of-source builds.
+That's what I'm sort-of-bicycling around trying to fix here.
+
+## compile_commands.json -- the compilation database ##
+
+Doc here http://clang.llvm.org/docs/JSONCompilationDatabase.html
+
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    ninja -t compdb
+
+-------------------------------------------------------------------------------
+
+Inspired by:
+  * https://jonasdevlieghere.com/a-better-youcompleteme-config/
+  * https://gist.github.com/locojay/4950253
+
+Also read:
+  * http://ycm-core.github.io/YouCompleteMe/#c-family-semantic-completion
+
+"""
+
+# pylint: disable=invalid-name
+# pylint: disable=missing-docstring
+import logging
 import os
 import os.path as path
-import logging
 import re
+
+# These imports are provided by YCM, deaggro linter on them.
+# pylint: disable=import-error
 import ycm_core
 from clang_helpers import PrepareClangFlags
+# pylint: enable=import-error
 
-# TODO highlevel SYNOPSYS doc
-# compile_commands.json directory
-# http://clang.llvm.org/docs/JSONCompilationDatabase.html
-# cmake with -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON
-compilation_database_folder = ''
+# Module-level global, caches the found DB
+compilation_db = None
 
 # Last-resort fallback guesswork
 C_BASE_FLAGS = [
@@ -35,6 +76,7 @@ CPP_BASE_FLAGS = [
     #'-isystem', '/usr/lib/c++/v1'
 ]
 
+# pylint: disable=bad-whitespace
 PLAINC_EXT_GUESSES = ('.c',)
 CPPLUS_EXT_GUESSES = ('.cpp', '.cxx', '.cc', '.m', '.mm')
 HEADER_EXT_GUESSES = ('.h', '.hxx', '.hpp', '.hh')
@@ -43,13 +85,14 @@ SRC_DIR_GUESSES    = ('src', 'lib')
 
 BUILDDIR_GUESSER   = re.compile(r'(build|BUILD)([-_.].*)?')
 BUILDDIR_MARKERS   = ('compile_commands.json', 'System.map', '.kernelrelease',
-        'CMakeCache.txt', 'config.status')
+                      'CMakeCache.txt', 'config.status')
 
-PROJECT_MARKERS    = ('.git', 'README', 'README.md', 'COPYING', 'LICENSE',
-        'AUTHORS', 'CREDITS', 'package.json', 'setup.py')
+PROJECT_MARKERS    = ('.git', 'COPYING', 'LICENSE',
+                      'AUTHORS', 'CREDITS', 'package.json', 'setup.py')
 
-def DirectoryOfThisScript():
-    return os.path.dirname(os.path.abspath(__file__))
+DIR_OF_THIS_SCRIPT = os.path.dirname(os.path.abspath(__file__))
+# pylint: enable=bad-whitespace
+
 
 def AppearsAsHdrFile(filename):
     _, ext = path.splitext(filename)
@@ -57,7 +100,7 @@ def AppearsAsHdrFile(filename):
 
 def AppearsAsSrcFile(filename):
     _, ext = path.splitext(filename)
-    return ext in C_SRCEXT_GUESSES + CPP_SRCEXT_GUESSES
+    return ext in PLAINC_EXT_GUESSES + CPPLUS_EXT_GUESSES
 
 def LookupBaseFlags(filename):
     _, ext = path.splitext(filename)
@@ -69,56 +112,29 @@ def WalkParentDirs(start_dir):
         try:
             os.listdir(i_dir)
         except OSError:
-            logging.debug("[WalkParents] not found | denied - %s", i_dir)
             break
-        else:
-            logging.debug("[WalkParents] is accessible      - %s", i_dir)
 
         yield i_dir
         i_dir = path.dirname(i_dir)
 
         if path.ismount(i_dir):
-            logging.debug("[WalkParents] reached mount boundary - %s", i_dir)
             break
 
         if path.realpath(i_dir) == path.realpath(start_dir):
-            logging.debug(
-                "[WalkParentDirs] reached start point - symlink/bindmount loop? %s",
-                i_dir)
             break
 
-def WalkChildrenLevel(dir, filter=lambda _: True):
-    for item in os.listdir(dir):
-        if not filter(item): continue
-        yield path.join(dir, item)
+def WalkChildrenLevel(d):
+    for item in os.listdir(d):
+        yield path.join(d, item)
 
 def WalkCompose(walk1, walk2):
     """ Composes two walks """
-    return lambda start_dir: (y for y in walk2(x) for x in walk1(start_dir))
+    return lambda start_dir: (y for x in walk1(start_dir) for y in walk2(x))
 
 WalkExample0 = lambda start_dir: []
 WalkExample1 = lambda start_dir: WalkChildrenLevel(start_dir)
 WalkExample2 = WalkChildrenLevel
 WalkExample3 = WalkCompose(WalkParentDirs, WalkChildrenLevel)
-
-def FindNearest(path, needle, build_dir=None): # TODO drop this
-    candidate = os.path.join(path, needle)
-    if(os.path.isfile(candidate) or os.path.isdir(candidate)):
-        logging.info("Found nearest " + needle + " at " + candidate)
-        return candidate;
-
-    parent = os.path.dirname(os.path.abspath(path));
-
-    if(build_dir):
-        candidate = os.path.join(parent, build_dir, needle)
-        if(os.path.isfile(candidate) or os.path.isdir(candidate)):
-            logging.info("Found nearest " + needle + " in builddir at " + candidate)
-            return candidate;
-
-    if(parent == path):
-        raise RuntimeError("Could not find " + needle);
-    else:
-        return FindNearest(parent, needle, build_dir)
 
 def AbsolutizeFlags(flags, working_directory):
     """ Resolve filenames in flags e.g. -I to absolute """
@@ -156,18 +172,21 @@ def GuessProjectRoot(query_dir):
         if any(
                 path.isfile(path.join(candidate, marker))
             or  path.isdir(path.join(candidate, marker))
-            for marker in PROJECT_ROOT_MARKERS
+            for marker in PROJECT_MARKERS
             ):
-            logging.info("Guessed project_root at %s" % candidate)
+            logging.info("Guessed project_root at %s", candidate)
             return candidate
+
+    logging.info("Coward fallback: found no PROJECT_MARKERS at %s", query_dir)
+    return query_dir
 
 def GuessBuildsubdir(project_root):
     for d in WalkChildrenLevel(project_root):
         if path.isdir(path.join(project_root, d)) \
-            and re.match(BUILDDIR_GUESSER, d) \
-            and any(path.exists(path.join(d, m) for m in BUILDDIR_MARKERS)):
+            and re.match(BUILDDIR_GUESSER, path.basename(d)) \
+            and any(path.exists(path.join(d, m)) for m in BUILDDIR_MARKERS):
             logging.info("Guessed build_dir at %s", d)
-            return d
+            return path.basename(d)
     logging.info("Couldn\'t guess build_dir, fallback to src dir %s", project_root)
     return '.'
 
@@ -177,7 +196,7 @@ def LookupCompileDb(database, filename):
         #-- Headers themselves aren't written to compile_commands.json:
         #-- that DB is per-translation-unit (per .c/.cpp file).
         #-- Do more guesswork to pair the header with "its" .cpp
-        for extension in PLAINC_EXT_GUESSES + CPP_SRCEXT_GUESSES:
+        for extension in PLAINC_EXT_GUESSES + CPPLUS_EXT_GUESSES:
             maybe_source = basename + extension
             if path.exists(maybe_source):
                 #-- Neat, we just substituted the extension
@@ -198,34 +217,47 @@ def LookupClangComplete(build_dir):
     for candidate in WalkParentDirs(build_dir):
         try:
             return open(path.join(candidate, '.clang_complete'),
-                    'r').read().splitlines()
+                        'r').read().splitlines()
         except OSError:
             pass
 
-def FlagsForFile(query_fname):
+def Settings(language=None, filename=None, _client_data=None, **_kwargs):
     """ YCM entrypoint """
-    #-- NOTE: don't os.path.realpath(), this clobbers symlinks
-    query_dir = os.path.dirname(query_fname)
-    project_root = GuessProjectRoot(query_dir)
-    build_dir = GuessBuildsubdir(project_root)
+    if language != 'cfamily':
+        return {}
 
-    db_path = path.join(build_dir, 'compile_commands.json')
-    compile_db = ycm_core.CompilationDatabase(db_path)
-    if compile_db:
-        info = LookupCompileDb(compile_db, query_fname)
+    #-- NOTE: don't os.path.realpath(), this clobbers symlinks
+    query_dir = os.path.dirname(filename)
+    project_root = GuessProjectRoot(query_dir)
+    build_subdir = GuessBuildsubdir(project_root)
+
+    build_dir = path.join(project_root, build_subdir)
+
+    global compilation_db
+    if not compilation_db:
+        # NOTE: it accepts the containing directory, not compile_commands.json!
+        compilation_db = ycm_core.CompilationDatabase(build_dir)
+        logging.info("Compilation DB in %s", compilation_db.database_directory)
+
+    if compilation_db:
+        logging.info("Looking up file %s", filename)
+        info = LookupCompileDb(compilation_db, filename)
+        logging.debug("Found flags %s", info.compiler_flags_)
         final_flags = AbsolutizeFlags(
-                info.compiler_flags_,
-                info.compiler_working_dir
-            )
+            info.compiler_flags_,
+            info.compiler_working_dir_
+        )
     else:
-        if AppearsAsSrcFile(query_fname):
-            final_flags = LookupBaseFlags(query_fname)
+        if AppearsAsSrcFile(filename):
+            final_flags = LookupBaseFlags(filename)
 
         final_flags += LookupClangComplete(build_dir) or []
 
-        relative_to = DirectoryOfThisScript()
-        final_flags = AbsolutizeFlags(flags, relative_to)
+        relative_to = DIR_OF_THIS_SCRIPT
+        final_flags = AbsolutizeFlags(final_flags, relative_to)
 
     return {
         'flags': final_flags,
-        'do_cache': True}
+        'do_cache': True,
+        # 'include_paths_relative_to_dir': build_dir,
+        }
