@@ -21,5 +21,11 @@ source_if_exists ~/src/peda/peda.py
 #-- Gef! -- wget https://github.com/hugsy/gef/raw/master/gef.py -qO ~/.gdbinit-gef.py
 source_if_exists ~/.gdbinit-gef.py
 
+#-- Gdb Dashboard -- wget https://git.io/.gdbinit -qO ~/.gdbinit-dashboard
+#source_if_exists ~/.gdbinit-dashboard
+
 #-- KDevelop's GDB printers for Qt stuff
 source_if_exists ~/src/kdevelop-gdb-printers/gdbinit
+
+#-- pacman community/pwndbg
+#source_if_exists /usr/share/pwndbg/gdbinit.py
