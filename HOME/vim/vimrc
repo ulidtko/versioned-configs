@@ -147,6 +147,10 @@ if has('nvim')
         \ endif
 endif
 
+set wildignore+=__pycache__
+set wildignore+=*.egg-info
+let g:NERDTreeRespectWildIgnore = 1
+
 let g:ctrlp_max_files = 80000
 let g:ctrlp_lazy_update = 180 " typing timeout, ms
 
