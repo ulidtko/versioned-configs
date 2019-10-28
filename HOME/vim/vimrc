@@ -61,7 +61,7 @@ syntax on
 filetype plugin indent on
 
 " Generic per-language defaults
-au FileType python set shiftwidth=4 expandtab textwidth=79 |
+au FileType python set shiftwidth=4 expandtab textwidth=99 |
 	\let python_highlight_all=1
 
 call gina#custom#mapping#nmap(
