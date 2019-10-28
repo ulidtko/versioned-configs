@@ -6,4 +6,5 @@ options(prompt="R> ")
 
 library(utils) #-- must be loaded before .First() call, because loadhistory is there
 
-library(ggplot2, quietly=TRUE, warn.conflicts=FALSE)
+#-- disabled, breaks in-repl installations of github libs
+#library(ggplot2, quietly=TRUE, warn.conflicts=FALSE)
