@@ -75,6 +75,8 @@ call gina#custom#mapping#nmap(
     \ { 'nnoremap': 1, 'silent': 1},
     \)
 
+" TODO tmux-style ^W-mappings
+
 " -===============================================- "
 " === Completions, linters, plugins... settings === "
 " -===============================================- "
@@ -84,8 +86,9 @@ let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
-let g:syntastic_python_checkers = ['mypy', 'python', 'pylint'] " flake8, mypy
-let g:syntastic_python_pylint_exec = 'pylint3'
+" pip3 install --user pylint mypy flake8
+let g:syntastic_python_checkers = ['mypy', 'python', 'pylint'] " flake8
+"let g:syntastic_python_pylint_exec = 'pylint3'
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_mypy_args = '--ignore-missing-imports'
 
@@ -106,6 +109,9 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 "let g:ycm_key_invoke_completion = '<C-Space>' " -- default
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>t :YcmCompleter GetType<CR>
+nmap <leader>yr :YcmCompleter RestartServer<CR>
+nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
+" http://ycm-core.github.io/YouCompleteMe/#ycmcompleter-subcommands
 nmap <leader>n :lnext<CR>
 
 " Haskell goodies
@@ -145,6 +151,10 @@ if has('nvim')
         \   exe ':source ' . g:workspace_session_name |
         \ endif
 endif
+
+set wildignore+=__pycache__
+set wildignore+=*.egg-info
+let g:NERDTreeRespectWildIgnore = 1
 
 let g:ctrlp_max_files = 80000
 let g:ctrlp_lazy_update = 180 " typing timeout, ms

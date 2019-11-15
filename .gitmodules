@@ -77,3 +77,7 @@
 [submodule "HOME/vim/bundle/vim-workspace"]
 	path = HOME/vim/bundle/vim-workspace
 	url = https://github.com/thaerkh/vim-workspace
+[submodule "HOME/vim/bundle/idris-vim"]
+	path = HOME/vim/bundle/idris-vim
+	url = https://github.com/idris-hackers/idris-vim.git
+	branch = master
