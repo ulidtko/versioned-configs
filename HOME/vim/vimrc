@@ -159,6 +159,18 @@ let g:NERDTreeRespectWildIgnore = 1
 let g:ctrlp_max_files = 80000
 let g:ctrlp_lazy_update = 180 " typing timeout, ms
 
+" Alternate files
+" Needs alt: https://github.com/uptech/alt
+" Run a given vim command on the results of alt from a given path.
+function! AltCommand(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " found"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+
 " -=================- "
 " === Keybindings === "
 " -=================- "
@@ -173,6 +185,7 @@ nmap <F9> :up<CR>:make<CR>
 nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
 nnoremap <C-t> :CtrlPLastMode<CR>
 nnoremap <C-p> :CtrlPMixed<CR>
+nnoremap <F4> :call AltCommand(expand('%'), ':e')<CR>
 
 " a Clear-All approximation
 " TODO join into sensible's Ctrl-L
