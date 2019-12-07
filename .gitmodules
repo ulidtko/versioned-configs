@@ -81,3 +81,15 @@
 	path = HOME/vim/bundle/idris-vim
 	url = https://github.com/idris-hackers/idris-vim.git
 	branch = master
+[submodule "HOME/vim/bundle/rust.vim"]
+	path = HOME/vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+	branch = master
+[submodule "HOME/vim/bundle/vim-racer"]
+	path = HOME/vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+	branch = master
+[submodule "HOME/vim/bundle/vim-cargo"]
+	path = HOME/vim/bundle/vim-cargo
+	url = https://github.com/timonv/vim-cargo
+	branch = master

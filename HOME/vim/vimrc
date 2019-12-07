@@ -127,6 +127,8 @@ au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
 au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
 au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 
+au FileType rust let g:syntastic_rust_checkers = ['rustc']
+
 " OmniCpp baggage
 let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
 set tags+=tags,./tags
