@@ -82,6 +82,15 @@ call gina#custom#mapping#nmap(
 " -===============================================- "
 
 " Syntastic
+let g:syntastic_error_symbol = "⚬"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "\u1f928"
+let g:syntastic_style_warning_symbol = "\u1f928"
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
@@ -91,15 +100,6 @@ let g:syntastic_python_checkers = ['mypy', 'python', 'pylint'] " flake8
 "let g:syntastic_python_pylint_exec = 'pylint3'
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_mypy_args = '--ignore-missing-imports'
-
-let g:syntastic_error_symbol = "⚬"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "\u1f928"
-let g:syntastic_style_warning_symbol = "\u1f928"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 " YouCompleteMe
 let g:ycm_always_populate_location_list = 1
@@ -127,7 +127,12 @@ au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
 au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
 au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 
+" Rust
+au FileType rust :set foldmethod=syntax foldminlines=16
 au FileType rust let g:syntastic_rust_checkers = ['rustc']
+au FileType rust :vmap <leader>f :RustFmtRange<CR>
+au FileType rust :nmap <leader>r :RustRun<CR>
+au FileType rust :nnoremap <leader>t :RustTest<CR>
 
 " OmniCpp baggage
 let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
