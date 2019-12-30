@@ -96,3 +96,6 @@
 [submodule "HOME/vim/bundle/nginx.vim"]
 	path = HOME/vim/bundle/nginx.vim
 	url = https://github.com/chr4/nginx.vim
+[submodule "HOME/vim/bundle/vim-ctrlp-ag"]
+	path = HOME/vim/bundle/vim-ctrlp-ag
+	url = https://github.com/lokikl/vim-ctrlp-ag
