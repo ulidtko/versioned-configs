@@ -2,20 +2,6 @@
 
 MYDIR="$(cd "$(dirname "$0")" && pwd)"
 
-#-- TODO: subfolders are ignored
-#install_recurse () {
-#	for name in *; do
-#		if [ -d "$name" ]; then
-#			select yn in "Yes" "No"; do
-#				case $yn in
-#					Yes ) break ;;
-#					No ) break ;;
-#				esac
-#			done
-#		fi
-#	done
-#}
-
 if [ "$TERM" = cygwin ]; then
 	symlink () {
 		local linkname="$2"
@@ -41,6 +27,7 @@ else
 	symlink () { ln -svi "$@"; }
 fi
 
+#-- Symlink classic "~/.foorc" dotfiles first
 ( cd "$MYDIR"/HOME
 	for name in *
 	do
@@ -55,7 +42,30 @@ fi
 			continue
 		fi
 
-		echo -ne "installing $name... \t"
+		echo -ne "installing rc-style... \t"
 		symlink "$PWD/$name" "$dest"
 	done
 )
+
+#-- Symlink XDG-style "~/.config/foo" as well
+STD_CFG=${XDG_CONFIG_HOME:-$HOME/.config}
+( cd "$MYDIR"/XDG
+	for name in *
+	do
+		dest="$STD_CFG"/$name
+
+		#-- silently skip symlinks, probably we installed them already
+		[ ! -L $dest ] || continue
+
+		if test -d $dest
+		then
+			echo "Skipping pre-existing XDG dir: $dest"
+			continue
+		fi
+
+		echo -ne "installing XDG subdir... \t"
+		symlink "$PWD/$name" "$dest"
+	done
+)
+
+# vim: sw=4 ts=4 noet

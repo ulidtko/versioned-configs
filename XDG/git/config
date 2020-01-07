@@ -8,16 +8,14 @@
 	interactive = auto
 [core]
 	pager = less -FRSX
-	excludesfile = ~/.gitignore_global
+	#excludesfile = ~/.gitignore_global
 
 [alias]
 	co = checkout
 	st = status
 	diffc = diff --cached
 	logg = log --color --graph --pretty=format:'%C(cyan dim)%h%Creset -%C(red bold)%d%Creset %s %C(yellow)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[merge]
-	tool = meld
-	stat = true
+
 [pull]
 	rebase = true
 [push]
@@ -31,6 +29,9 @@
 	autosetuprebase = always
 [rerere]
 	enabled = true
+[merge]
+	tool = meld
+	stat = true
 [mergetool "meld"]
 	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
