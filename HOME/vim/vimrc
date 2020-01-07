@@ -128,7 +128,7 @@ au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
 au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
 
 " Rust
-au FileType rust :set foldmethod=syntax foldminlines=16
+au FileType rust let g:rust_fold=1
 au FileType rust let g:syntastic_rust_checkers = ['rustc']
 au FileType rust :vmap <leader>f :RustFmtRange<CR>
 au FileType rust :nmap <leader>r :RustRun<CR>
