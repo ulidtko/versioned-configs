@@ -65,11 +65,9 @@ execute pathogen#infect("bundle/{}")
 syntax on
 filetype plugin indent on
 
-" Generic per-language defaults
-au FileType python set shiftwidth=4 expandtab textwidth=99 |
-	\let python_highlight_all=1
-
-let NERDTreeIgnore=['__pycache__']
+" ---------------------------------------------------------- "
+" Per-language defaults kept under ~/.vim/ftplugin/$LANG.vim "
+" ---------------------------------------------------------- "
 
 call gina#custom#mapping#nmap(
     \ 'status', 'C', ':<C-u>Gina commit<CR>',
@@ -100,54 +98,13 @@ let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
-" pip3 install --user pylint mypy flake8
-let g:syntastic_python_checkers = ['mypy', 'python', 'pylint'] " flake8
-"let g:syntastic_python_pylint_exec = 'pylint3'
-let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_mypy_args = '--ignore-missing-imports'
-
 " YouCompleteMe
 let g:ycm_always_populate_location_list = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 "let g:ycm_key_invoke_completion = '<C-Space>' " -- default
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>t :YcmCompleter GetType<CR>
-nmap <leader>yr :YcmCompleter RestartServer<CR>
-nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
-" http://ycm-core.github.io/YouCompleteMe/#ycmcompleter-subcommands
-nmap <leader>n :lnext<CR>
 
-" Haskell goodies
-let g:hdevtools_options = '--nostack -g-Wall -g-fdefer-type-errors'
-let g:necoghc_enable_detailed_browse = 1
-let g:hs_highlight_types = 1
-let g:hs_highlight_boolean = 1
-let g:hs_highlight_more_types = 1
-au FileType haskell noremap <buffer><localleader>i :HdevtoolsInfo<CR>
-au FileType haskell setlocal omnifunc=necoghc#omnifunc
-au FileType haskell source ~/.vim/bundle/ghcmod-vim/after/ftplugin/haskell/ghcmod.vim
-au FileType haskell noremap <buffer><localleader>t :GhcModType<CR>
-au FileType haskell noremap <buffer><localleader>s :GhcModSplitFunCase<CR>
-au FileType haskell noremap <buffer><localleader>x :GhcModExpand<CR> " TH
-
-" Rust
-au FileType rust let g:rust_fold=1
-au FileType rust let g:syntastic_rust_checkers = ['rustc']
-au FileType rust :vmap <leader>f :RustFmtRange<CR>
-au FileType rust :nmap <leader>r :RustRun<CR>
-au FileType rust :nnoremap <leader>t :RustTest<CR>
-
-" OmniCpp baggage
-let &tags=substitute(glob("~/.vim/tags/*"), "\n", ",", "g")
-set tags+=tags,./tags
-
-let OmniCpp_ShowAccess = 0
-let OmniCpp_DisplayMode = 1 " show all in class scopes
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_LocalSearchDecl = 1
-let OmniCpp_DefaultNamespaces = ["std"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " :TOhtml settings
@@ -203,6 +160,14 @@ nnoremap <C-p> :CtrlPMixed<CR>
 
 nnoremap <leader>f :CtrlPagLocate 
 nnoremap <leader>n :CtrlPagPrevious<CR>
+
+" http://ycm-core.github.io/YouCompleteMe/#ycmcompleter-subcommands
+nmap <leader>g :YcmCompleter GoTo<CR>
+nmap <leader>t :YcmCompleter GetType<CR>
+nmap <leader>yr :YcmCompleter RestartServer<CR>
+nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
+
+nmap <leader>n :lnext<CR>
 
 " a Clear-All approximation
 " TODO join into sensible's Ctrl-L
