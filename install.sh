@@ -30,45 +30,40 @@ else
 	symlink () { ln -svi "$@"; }
 fi
 
+install_link() {
+	message=$1
+	path=$2
+	dest=$3
+
+	#-- silently skip symlinks, probably we installed them already
+	[ ! -L "$dest" ] || return
+
+	if test -d "$dest"; then
+		echo "$dest is a plain directory; would not symlink"
+		return
+	fi
+
+	printf "symlinking %s \t" "$message"
+	symlink "$path" "$dest"
+}
+
 #-- Symlink classic "~/.foorc" dotfiles first
 ( cd "$MYDIR"/HOME || exit
-	for name in *
-	do
-		dest=~/.$name
-
-		#-- silently skip symlinks, probably we installed them already
-		[ ! -L "$dest" ] || continue
-
-		if [ -d "$dest" ]
-		then
-			echo "$dest is a plain directory; would not symlink"
-			continue
-		fi
-
-		printf "installing rc-style... \t"
-		symlink "$PWD/$name" "$dest"
+	for name in *; do
+		install_link "rc-style" "$PWD/$name" "$HOME/.$name"
 	done
 )
 
 #-- Symlink XDG-style "~/.config/foo" as well
-STD_CFG=${XDG_CONFIG_HOME:-$HOME/.config}
 ( cd "$MYDIR"/XDG || exit
-	for name in *
-	do
-		dest="$STD_CFG"/$name
+	STD_CFG=${XDG_CONFIG_HOME:-$HOME/.config}
 
-		#-- silently skip symlinks, probably we installed them already
-		[ ! -L "$dest" ] || continue
+	mkdir -p "$STD_CFG/git"
+	install_link "XDG-style" "$PWD/git/config" "$STD_CFG/git/config"
+	install_link "XDG-style" "$PWD/git/ignore" "$STD_CFG/git/ignore"
 
-		if test -d "$dest"
-		then
-			echo "Skipping pre-existing XDG dir: $dest"
-			continue
-		fi
-
-		printf "installing XDG subdir... \t"
-		symlink "$PWD/$name" "$dest"
-	done
+	mkdir -p "$STD_CFG/fish"
+	install_link "XDG-style" "$PWD/fish/config.fish" "$STD_CFG/fish/config.fish"
 )
 
 # vim: sw=4 ts=4 noet
