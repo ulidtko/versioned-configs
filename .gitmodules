@@ -99,3 +99,6 @@
 [submodule "HOME/vim/bundle/vim-ctrlp-ag"]
 	path = HOME/vim/bundle/vim-ctrlp-ag
 	url = https://github.com/lokikl/vim-ctrlp-ag
+[submodule "HOME/vim/bundle/vim-fish"]
+	path = HOME/vim/bundle/vim-fish
+	url = https://github.com/dag/vim-fish

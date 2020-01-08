@@ -53,6 +53,11 @@ if has('nvim')
     set shada=!,'100,<50,s10,h,n~/.config/nvim/shada
 endif
 
+" Avoid fish surprises for plugins
+if &shell =~# 'fish$'
+    set shell=sh
+endif
+
 " Load everything under vim/bundle/
 execute pathogen#infect("bundle/{}")
 
