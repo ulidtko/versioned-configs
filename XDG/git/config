@@ -22,6 +22,7 @@
 	default = upstream
 [diff]
 	mnemonicprefix = true
+	colorMoved = zebra
 [rebase]
 	autosquash = true
 [branch]
