@@ -8,3 +8,10 @@ type -q exa; and alias ls=exa
 type -q bat; and alias cat=bat
 
 type -q lesspipe; and eval (lesspipe)
+
+complete --command aws --no-files \
+         --arguments '(begin; \
+                set -lx COMP_SHELL fish; \
+                set -lx COMP_LINE (commandline); \
+                aws_completer | sed \'s/ $//\'; \
+            end)'
