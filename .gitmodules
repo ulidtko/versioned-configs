@@ -96,3 +96,7 @@
 [submodule "HOME/vim/bundle/vim-fish"]
 	path = HOME/vim/bundle/vim-fish
 	url = https://github.com/dag/vim-fish
+[submodule "HOME/vim/bundle/haskell-vim"]
+	path = HOME/vim/bundle/haskell-vim
+	url = https://github.com/raichoo/haskell-vim
+	branch = master
