@@ -100,3 +100,7 @@
 	path = HOME/vim/bundle/haskell-vim
 	url = https://github.com/raichoo/haskell-vim
 	branch = master
+[submodule "XDG/fish/fish-kubectl-completions"]
+	path = XDG/fish/fish-kubectl-completions
+	url = https://github.com/evanlucas/fish-kubectl-completions
+	branch = master
