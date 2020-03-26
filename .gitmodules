@@ -104,3 +104,6 @@
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
 	branch = master
+[submodule "HOME/vim/bundle/thrift.vim"]
+	path = HOME/vim/bundle/thrift.vim
+	url = https://github.com/solarnz/thrift.vim
