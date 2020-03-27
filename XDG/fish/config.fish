@@ -2,7 +2,7 @@
 #-- then re-export the Universal PATH
 #-- NOTE: set --show PATH
 set -ge PATH
-set -gx PATH $PATH
+set -Ux PATH $PATH
 
 type -q exa; and alias ls=exa
 type -q bat; and alias cat=bat
