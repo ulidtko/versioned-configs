@@ -86,19 +86,6 @@ call gina#custom#mapping#nmap(
 " === Completions, linters, plugins... settings === "
 " -===============================================- "
 
-" Syntastic
-let g:syntastic_error_symbol = "⚬"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "!"
-let g:syntastic_style_warning_symbol = "🗉"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_cpp_checkers = ['gcc'] "['clang_check', 'gcc']
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
 " YouCompleteMe
 let g:ycm_always_populate_location_list = 1

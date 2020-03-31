@@ -13,9 +13,6 @@
 [submodule "HOME/vim/bundle/vim-hdevtools"]
 	path = HOME/vim/bundle/vim-hdevtools
 	url = https://github.com/bitc/vim-hdevtools
-[submodule "HOME/vim/bundle/syntastic"]
-	path = HOME/vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "HOME/oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
