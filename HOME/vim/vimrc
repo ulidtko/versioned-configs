@@ -60,6 +60,8 @@ endif
 
 " Load everything under vim/bundle/
 execute pathogen#infect("bundle/{}")
+" Index help files
+silent! helptags ALL
 
 " classic
 syntax on
