@@ -86,6 +86,16 @@ call gina#custom#mapping#nmap(
 " === Completions, linters, plugins... settings === "
 " -===============================================- "
 
+" ALE
+let g:ale_command_wrapper = 'nice -n5'
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+
+let g:ale_sign_error = "⚬"
+let g:ale_sign_warning = "⚠"
+let g:ale_sign_info = "i"
+let g:ale_sign_style_error = "!"
+let g:ale_sign_style_warning = "🗉"
 
 " YouCompleteMe
 let g:ycm_always_populate_location_list = 1
@@ -140,6 +150,7 @@ endfunction
     nmap <F2> :NERDTreeToggle<CR>
 nnoremap <F4> :call AltCommand(expand('%'), ':e')<CR>
     nmap <F5> :Gina status<CR>
+    nmap <F8> :ALEFix<CR>
     nmap <F9> :up<CR>:make<CR>
     nmap <F12> :let &background = (&background == "light") ? "dark" : "light"<CR>
 nnoremap <C-f> :CtrlPag<CR>
@@ -149,6 +160,7 @@ nnoremap <C-p> :CtrlPMixed<CR>
 
 nnoremap <leader>f :CtrlPagLocate 
 nnoremap <leader>n :CtrlPagPrevious<CR>
+nnoremap <leader>d :ALEDetail<CR>
 
 " http://ycm-core.github.io/YouCompleteMe/#ycmcompleter-subcommands
 nmap <leader>g :YcmCompleter GoTo<CR>
@@ -157,6 +169,8 @@ nmap <leader>yr :YcmCompleter RestartServer<CR>
 nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
 
 nmap <leader>n :lnext<CR>
+
+inoremap <C-space> <C-X><C-o>
 
 " a Clear-All approximation
 " TODO join into sensible's Ctrl-L

@@ -104,3 +104,6 @@
 [submodule "HOME/vim/bundle/thrift.vim"]
 	path = HOME/vim/bundle/thrift.vim
 	url = https://github.com/solarnz/thrift.vim
+[submodule "HOME/vim/bundle/ale"]
+	path = HOME/vim/bundle/ale
+	url = https://github.com/dense-analysis/ale
