@@ -107,3 +107,6 @@
 [submodule "HOME/vim/bundle/ale"]
 	path = HOME/vim/bundle/ale
 	url = https://github.com/dense-analysis/ale
+[submodule "HOME/vim/bundle/vim-mercury"]
+	path = HOME/vim/bundle/vim-mercury
+	url = https://github.com/khorser/vim-mercury
