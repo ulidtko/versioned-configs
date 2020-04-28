@@ -9,7 +9,8 @@
 [core]
 	pager = less -FRSX
 	#excludesfile = ~/.gitignore_global
-
+[fetch]
+	prune = true
 [alias]
 	co = checkout
 	st = status
