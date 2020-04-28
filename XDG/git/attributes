@@ -1,0 +1,2 @@
+*.md diff=word-diff
+*.markdown diff=word-diff

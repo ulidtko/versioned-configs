@@ -24,6 +24,8 @@
 [diff]
 	mnemonicprefix = true
 	colorMoved = zebra
+[diff "word-diff"]
+	command = /home/ulidtko/.config/git/word-diff-wrapper
 [rebase]
 	autosquash = true
 [branch]
