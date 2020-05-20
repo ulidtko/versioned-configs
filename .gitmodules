@@ -54,6 +54,7 @@
 [submodule "HOME/vim/bundle/gina.vim"]
 	path = HOME/vim/bundle/gina.vim
 	url = https://github.com/lambdalisue/gina.vim
+	branch = master
 [submodule "HOME/vim/bundle/vital.vim"]
 	path = HOME/vim/bundle/vital.vim
 	url = https://github.com/vim-jp/vital.vim
