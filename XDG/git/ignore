@@ -12,6 +12,8 @@ tags
 *.creator.user
 node_modules
 
+autom4te.cache
+
 .session.vim
 .mypy_cache
 .undodir
