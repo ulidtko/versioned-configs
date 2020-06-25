@@ -108,8 +108,8 @@
 	url = https://github.com/solarnz/thrift.vim
 [submodule "HOME/vim/bundle/ale"]
 	path = HOME/vim/bundle/ale
-	url = https://github.com/ulidtko/ale
-	branch = improve-dockerfile_lint
+	url = https://github.com/dense-analysis/ale
+	branch = master
 [submodule "HOME/vim/bundle/vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
