@@ -113,3 +113,7 @@
 [submodule "HOME/vim/bundle/vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
+[submodule "HOME/vim/bundle/LanguageClient-neovim"]
+	path = HOME/vim/bundle/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim
+	branch = next
