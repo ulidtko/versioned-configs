@@ -39,4 +39,4 @@ map <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
 
 map <Leader>r :let g:LanguageClient_trace = "messages"<CR>
             \ :let g:LanguageClient_windowLogMessageLevel = "Log"<CR>
-            \ :LanguageClient_stop<CR>:LanguageClient_start<CR>
+            \ :LanguageClientStop<CR>:LanguageClientStart<CR>
