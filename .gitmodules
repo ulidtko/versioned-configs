@@ -1,119 +1,151 @@
-[submodule "vim-pathogen"]
-	path = HOME/vim/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim-colors-solarized"]
-	path = HOME/vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "darkspectrum"]
-	path = HOME/vim/bundle/darkspectrum
-	url = https://github.com/vim-scripts/darkspectrum
-[submodule "HOME/vim/bundle/editorconfig-vim"]
-	path = HOME/vim/bundle/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
-[submodule "HOME/vim/bundle/vim-hdevtools"]
-	path = HOME/vim/bundle/vim-hdevtools
-	url = https://github.com/bitc/vim-hdevtools
-[submodule "HOME/oh-my-zsh"]
-	path = HOME/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh
-[submodule "HOME/vim/bundle/YouCompleteMe"]
-	path = HOME/vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
-	branch = master
-[submodule "HOME/vim/bundle/vim-gitgutter"]
-	path = HOME/vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
-[submodule "HOME/vim/bundle/vim-airline"]
-	path = HOME/vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "HOME/vim/bundle/ctrlp.vim"]
-	path = HOME/vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "HOME/vim/bundle/vimproc.vim"]
-	path = HOME/vim/bundle/vimproc.vim
-	url = https://github.com/Shougo/vimproc.vim
-[submodule "HOME/vim/bundle/base16-vim"]
-	path = HOME/vim/bundle/base16-vim
-	url = https://github.com/chriskempson/base16-vim
-	branch = master
-[submodule "HOME/vim/bundle/nerdtree"]
-	path = HOME/vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "HOME/vim/bundle/nerdtree-git-plugin"]
-	path = HOME/vim/bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
-[submodule "HOME/vim/bundle/nerdcommenter"]
-	path = HOME/vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
-[submodule "HOME/vim/bundle/Dockerfile.vim"]
-	path = HOME/vim/bundle/Dockerfile.vim
-	url = https://github.com/ekalinin/Dockerfile.vim.git
-[submodule "HOME/vim/bundle/vim-sensible"]
-	path = HOME/vim/bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible
-[submodule "HOME/vim/bundle/gina.vim"]
-	path = HOME/vim/bundle/gina.vim
-	url = https://github.com/lambdalisue/gina.vim
-	branch = master
-[submodule "HOME/vim/bundle/vital.vim"]
-	path = HOME/vim/bundle/vital.vim
-	url = https://github.com/vim-jp/vital.vim
-[submodule "HOME/vim/bundle/deoplete.nvim"]
-	path = HOME/vim/bundle/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim
-[submodule "HOME/vim/bundle/vim-unimpaired"]
-	path = HOME/vim/bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired
-[submodule "HOME/vim/bundle/vim-pencil"]
-	path = HOME/vim/bundle/vim-pencil
-	url = https://github.com/reedes/vim-pencil
-[submodule "HOME/vim/bundle/vim-workspace"]
-	path = HOME/vim/bundle/vim-workspace
-	url = https://github.com/thaerkh/vim-workspace
-[submodule "HOME/vim/bundle/idris-vim"]
-	path = HOME/vim/bundle/idris-vim
-	url = https://github.com/idris-hackers/idris-vim.git
-	branch = master
-[submodule "HOME/vim/bundle/rust.vim"]
-	path = HOME/vim/bundle/rust.vim
-	url = https://github.com/rust-lang/rust.vim
-	branch = master
-[submodule "HOME/vim/bundle/vim-racer"]
-	path = HOME/vim/bundle/vim-racer
-	url = https://github.com/racer-rust/vim-racer
-	branch = master
-[submodule "HOME/vim/bundle/vim-cargo"]
-	path = HOME/vim/bundle/vim-cargo
-	url = https://github.com/timonv/vim-cargo
-	branch = master
-[submodule "HOME/vim/bundle/nginx.vim"]
-	path = HOME/vim/bundle/nginx.vim
-	url = https://github.com/chr4/nginx.vim
-[submodule "HOME/vim/bundle/vim-ctrlp-ag"]
-	path = HOME/vim/bundle/vim-ctrlp-ag
-	url = https://github.com/lokikl/vim-ctrlp-ag
-[submodule "HOME/vim/bundle/vim-fish"]
-	path = HOME/vim/bundle/vim-fish
-	url = https://github.com/dag/vim-fish
-[submodule "HOME/vim/bundle/haskell-vim"]
-	path = HOME/vim/bundle/haskell-vim
-	url = https://github.com/raichoo/haskell-vim
-	branch = master
+# ----- Non-Vim submodules -----
 [submodule "XDG/fish/fish-kubectl-completions"]
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
 	branch = master
-[submodule "HOME/vim/bundle/thrift.vim"]
+[submodule "HOME/oh-my-zsh"]
+	path = HOME/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
+	branch = master
+
+# ----- Vim bundle onwards -----
+[submodule "vim-pathogen"]
+	path = HOME/vim/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+# colorschemes
+[submodule "vim-colors-base16"]
+	path = HOME/vim/bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim
+	branch = master
+[submodule "vim-colors-solarized"]
+	path = HOME/vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+	branch = master
+[submodule "vim-colors-darkspectrum"]
+	path = HOME/vim/bundle/darkspectrum
+	url = https://github.com/vim-scripts/darkspectrum
+	branch = master
+# "general" plugins which make sense
+[submodule "vim-editorconfig"]
+	path = HOME/vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+	branch = master
+[submodule "vim-sensible"]
+	path = HOME/vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+	branch = master
+[submodule "vim-unimpaired"]
+	path = HOME/vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+	branch = master
+[submodule "vim-pencil"]
+	path = HOME/vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
+	branch = master
+[submodule "vim-workspace"]
+	path = HOME/vim/bundle/vim-workspace
+	url = https://github.com/thaerkh/vim-workspace
+	branch = master
+[submodule "vim-airline"]
+	path = HOME/vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+	branch = master
+[submodule "gina.vim"]
+	path = HOME/vim/bundle/gina.vim
+	url = https://github.com/lambdalisue/gina.vim
+	branch = master
+[submodule "vim-gitgutter"]
+	path = HOME/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+	branch = master
+[submodule "ctrlp.vim"]
+	path = HOME/vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+	branch = master
+[submodule "vim-ctrlp-ag"]
+	path = HOME/vim/bundle/vim-ctrlp-ag
+	url = https://github.com/lokikl/vim-ctrlp-ag
+[submodule "nerdtree"]
+	path = HOME/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "nerdtree-git-plugin"]
+	path = HOME/vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+	branch = master
+[submodule "nerdcommenter"]
+	path = HOME/vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+	branch = master
+
+# ----- VimL libs, development, testing -----
+[submodule "vimproc.vim"]
+	path = HOME/vim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim
+	branch = master
+[submodule "vital.vim"]
+	path = HOME/vim/bundle/vital.vim
+	url = https://github.com/vim-jp/vital.vim
+	branch = master
+
+# ----- Support of specific languages -----
+[submodule "Dockerfile.vim"]
+	path = HOME/vim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+	branch = master
+[submodule "idris-vim"]
+	path = HOME/vim/bundle/idris-vim
+	url = https://github.com/idris-hackers/idris-vim.git
+	branch = master
+[submodule "nginx.vim"]
+	path = HOME/vim/bundle/nginx.vim
+	url = https://github.com/chr4/nginx.vim
+[submodule "vim-fish"]
+	path = HOME/vim/bundle/vim-fish
+	url = https://github.com/dag/vim-fish
+[submodule "rust.vim"]
+	path = HOME/vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+	branch = master
+[submodule "vim-racer"]
+	path = HOME/vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+	branch = master
+[submodule "vim-cargo"]
+	path = HOME/vim/bundle/vim-cargo
+	url = https://github.com/timonv/vim-cargo
+	branch = master
+[submodule "haskell-vim"]
+	path = HOME/vim/bundle/haskell-vim
+	url = https://github.com/raichoo/haskell-vim
+	branch = master
+[submodule "vim-hdevtools"]
+	path = HOME/vim/bundle/vim-hdevtools
+	url = https://github.com/bitc/vim-hdevtools
+	branch = master
+[submodule "thrift.vim"]
 	path = HOME/vim/bundle/thrift.vim
 	url = https://github.com/solarnz/thrift.vim
-[submodule "HOME/vim/bundle/ale"]
+	branch = master
+[submodule "vim-mercury"]
+	path = HOME/vim/bundle/vim-mercury
+	url = https://github.com/khorser/vim-mercury
+
+# ----- Completion engines -----
+[submodule "ale"]
 	path = HOME/vim/bundle/ale
 	url = https://github.com/dense-analysis/ale
 	branch = master
-[submodule "HOME/vim/bundle/vim-mercury"]
-	path = HOME/vim/bundle/vim-mercury
-	url = https://github.com/khorser/vim-mercury
-[submodule "HOME/vim/bundle/LanguageClient-neovim"]
+[submodule "vim-YouCompleteMe"]
+	path = HOME/vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
+	branch = master
+[submodule "deoplete.nvim"]
+	path = HOME/vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+	branch = master
+[submodule "LanguageClient-neovim"]
 	path = HOME/vim/bundle/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim
 	branch = next
+
+# vim: noet sw=8 ts=8
