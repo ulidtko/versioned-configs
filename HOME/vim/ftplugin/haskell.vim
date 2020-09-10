@@ -4,11 +4,13 @@ let g:hs_highlight_types = 1
 let g:hs_highlight_boolean = 1
 let g:hs_highlight_more_types = 1
 
+set formatprg=stylish-haskell " use gq to format code ranges
+
 " let g:necoghc_enable_detailed_browse = 1
 " setlocal omnifunc=necoghc#omnifunc
 
-noremap <buffer><localleader>i :HdevtoolsInfo<CR>
-noremap <buffer><localleader>t :HdevtoolsType<CR>
+" noremap <buffer><localleader>i :HdevtoolsInfo<CR>
+" noremap <buffer><localleader>t :HdevtoolsType<CR>
 
 " raichoo/haskell-vim highlighting settings
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -24,19 +26,4 @@ let b:ale_linters = ['hie', 'cabal_ghc', 'hlint']
 let b:ale_fixers = ['stylish-haskell']
 
 " LanguageClient-neovim
-let g:LanguageClient_serverCommands = { 'haskell': ['haskell-language-server', '--lsp'] }
-let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-map <Leader>k :call LanguageClient#textDocument_hover()<CR>
-map <Leader>g :call LanguageClient#textDocument_definition()<CR>
-map <Leader>r :call LanguageClient#textDocument_rename()<CR>
-map <Leader>f :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>b :call LanguageClient#textDocument_references()<CR>
-map <Leader>a :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
-
-
-map <Leader>r :let g:LanguageClient_trace = "messages"<CR>
-            \ :let g:LanguageClient_windowLogMessageLevel = "Log"<CR>
-            \ :LanguageClientStop<CR>:LanguageClientStart<CR>
+let b:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']

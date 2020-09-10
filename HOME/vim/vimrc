@@ -106,6 +106,21 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+" LSP client
+let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
+let g:LanguageClient_serverCommands = {
+  \ 'haskell': ['haskell-language-server', '--lsp'],
+  \ 'yaml': ['yaml-language-server', '--stdio']
+  \ }
+let g:LanguageClient_waitOutputTimeout = 3 " seconds, default 10
+let g:LanguageClient_useVirtualText = "CodeLens"
+let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
+let g:LanguageClient_trace = "verbose"
+let g:LanguageClient_windowLogMessageLevel = "Log"
+"let g:LanguageClient_loggingLevel = "DEBUG"
+"let g:LanguageClient_loggingFile = "/tmp/vim-lsp-client.log"
+"let g:LanguageClient_serverStderr = "/tmp/vim-lsp-server.log"
+
 " :TOhtml settings
 let html_use_css = 1
 let html_dynamic_folds = 1
@@ -158,17 +173,27 @@ vnoremap <C-f> :CtrlPagVisual<CR>
 nnoremap <C-t> :CtrlPLastMode<CR>
 nnoremap <C-p> :CtrlPMixed<CR>
 
-nnoremap <leader>f :CtrlPagLocate 
+nnoremap <leader>f :CtrlPagLocate
 nnoremap <leader>n :CtrlPagPrevious<CR>
 nnoremap <leader>d :ALEDetail<CR>
 
 " http://ycm-core.github.io/YouCompleteMe/#ycmcompleter-subcommands
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>t :YcmCompleter GetType<CR>
+nmap <leader>yg :YcmCompleter GoTo<CR>
+nmap <leader>yt :YcmCompleter GetType<CR>
 nmap <leader>yr :YcmCompleter RestartServer<CR>
 nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
 
 nmap <leader>n :lnext<CR>
+
+nnoremap <F6> :call LanguageClient_contextMenu()<CR>
+map <Leader>k :call LanguageClient#textDocument_hover()<CR>
+map <Leader>g :call LanguageClient#textDocument_definition()<CR>
+map <Leader>r :call LanguageClient#textDocument_rename()<CR>
+map <Leader>f :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>b :call LanguageClient#textDocument_references()<CR>
+map <Leader>a :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+nmap <leader>r :exe (b:LanguageClient_isServerRunning) ? ":LanguageClientStop" : ":LanguageClientStart" <CR>
 
 inoremap <C-space> <C-X><C-o>
 
