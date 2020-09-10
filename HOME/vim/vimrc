@@ -2,7 +2,7 @@ set nocp " !!!
 
 set showcmd
 
-set shortmess=nrxltToOI
+set shortmess=aI " skip :intro & abbreviate file-messages
 
 set hlsearch incsearch
 set ignorecase smartcase " case-insensitive search when pattern all lowercase
