@@ -115,6 +115,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_waitOutputTimeout = 3 " seconds, default 10
 let g:LanguageClient_useVirtualText = "CodeLens"
 let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
+let g:LanguageClient_hoverPreview = "Always"
 let g:LanguageClient_trace = "verbose"
 let g:LanguageClient_windowLogMessageLevel = "Log"
 "let g:LanguageClient_loggingLevel = "DEBUG"
