@@ -129,6 +129,10 @@
 [submodule "vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
+[submodule "cryptol.vim"]
+	path = HOME/vim/bundle/cryptol.vim
+	url = https://github.com/victoredwardocallaghan/cryptol.vim
+	branch = master
 
 # ----- Completion engines -----
 [submodule "ale"]
