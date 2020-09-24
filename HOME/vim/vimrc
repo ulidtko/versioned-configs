@@ -107,6 +107,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " LSP client
+let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.json']
 let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['haskell-language-server', '--lsp'],
