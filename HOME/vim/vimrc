@@ -111,6 +111,7 @@ let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.js
 let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['haskell-language-server', '--lsp'],
+  \ 'rust': ['rls'],
   \ 'yaml': ['yaml-language-server', '--stdio']
   \ }
 let g:LanguageClient_waitOutputTimeout = 3 " seconds, default 10
