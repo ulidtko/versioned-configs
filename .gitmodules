@@ -72,12 +72,6 @@
 	path = HOME/vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 	branch = master
-[submodule "nerdcommenter"]
-	path = HOME/vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
-	branch = master
-
-# ----- VimL libs, development, testing -----
 [submodule "vimproc.vim"]
 	path = HOME/vim/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim
@@ -153,3 +147,7 @@
 	branch = next
 
 # vim: noet sw=8 ts=8
+[submodule "HOME/vim/bundle/tcomment"]
+	path = HOME/vim/bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim
+	branch = master
