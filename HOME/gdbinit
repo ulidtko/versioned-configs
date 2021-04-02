@@ -29,3 +29,7 @@ source_if_exists ~/src/kdevelop-gdb-printers/gdbinit
 
 #-- pacman community/pwndbg
 #source_if_exists /usr/share/pwndbg/gdbinit.py
+
+#-- Project-scope gdbinit whitelist.
+#-- "Allowlist" if you prefer, but I stick to the roots.
+#add-auto-load-safe-path /home/ulidtko/kata/rs/.gdbinit
