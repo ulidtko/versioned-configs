@@ -110,7 +110,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.json']
 let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['haskell-language-server', '--lsp'],
+  \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
   \ 'rust': ['rls'],
   \ 'yaml': ['yaml-language-server', '--stdio']
   \ }
