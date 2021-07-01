@@ -151,3 +151,6 @@
 	path = HOME/vim/bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim
 	branch = master
+[submodule "XDG/fish/fish-kube-prompt"]
+	path = XDG/fish/fish-kube-prompt
+	url = https://github.com/aluxian/fish-kube-prompt
