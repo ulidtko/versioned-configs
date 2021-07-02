@@ -1,4 +1,7 @@
 # ----- Non-Vim submodules -----
+[submodule "fish-kube-prompt"]
+	path = XDG/fish/fish-kube-prompt
+	url = https://github.com/aluxian/fish-kube-prompt
 [submodule "XDG/fish/fish-kubectl-completions"]
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
@@ -49,6 +52,10 @@
 [submodule "vim-airline"]
 	path = HOME/vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+	branch = master
+[submodule "tcomment"]
+	path = HOME/vim/bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim
 	branch = master
 [submodule "gina.vim"]
 	path = HOME/vim/bundle/gina.vim
@@ -127,6 +134,10 @@
 	path = HOME/vim/bundle/cryptol.vim
 	url = https://github.com/victoredwardocallaghan/cryptol.vim
 	branch = master
+[submodule "vim-terraform"]
+	path = HOME/vim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+	branch = master
 
 # ----- Completion engines -----
 [submodule "ale"]
@@ -147,10 +158,3 @@
 	branch = next
 
 # vim: noet sw=8 ts=8
-[submodule "HOME/vim/bundle/tcomment"]
-	path = HOME/vim/bundle/tcomment
-	url = https://github.com/tomtom/tcomment_vim
-	branch = master
-[submodule "XDG/fish/fish-kube-prompt"]
-	path = XDG/fish/fish-kube-prompt
-	url = https://github.com/aluxian/fish-kube-prompt
