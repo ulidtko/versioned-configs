@@ -158,3 +158,7 @@
 	branch = next
 
 # vim: noet sw=8 ts=8
+[submodule "HOME/vim/bundle/vim-toml"]
+	path = HOME/vim/bundle/vim-toml
+	url = https://github.com/cespare/vim-toml
+	branch = master
