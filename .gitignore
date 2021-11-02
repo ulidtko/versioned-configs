@@ -3,3 +3,6 @@ HOME/vim/.netrwhist
 #-- these have sensitive contents, DO NOT COMMIT
 HOME/vim/viminfo
 HOME/vim/viminf?.tmp
+
+#-- this ain't config (?) I guess...
+XDG/fish/fish_variables
