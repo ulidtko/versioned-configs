@@ -6,9 +6,6 @@ let g:hs_highlight_more_types = 1
 
 set formatprg=stylish-haskell " use gq to format code ranges
 
-" let g:necoghc_enable_detailed_browse = 1
-" setlocal omnifunc=necoghc#omnifunc
-
 " noremap <buffer><localleader>i :HdevtoolsInfo<CR>
 " noremap <buffer><localleader>t :HdevtoolsType<CR>
 
@@ -27,3 +24,5 @@ let b:ale_fixers = ['stylish-haskell']
 
 " LanguageClient-neovim
 let b:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+
+setlocal sw=2 ts=2
