@@ -26,6 +26,8 @@
 	colorMoved = zebra
 [diff "word-diff"]
 	command = /home/ulidtko/.config/git/word-diff-wrapper
+[diff "sopsdiffer"]
+	textconv = sops -d
 [rebase]
 	autosquash = true
 [branch]
