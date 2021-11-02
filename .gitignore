@@ -1,2 +1,5 @@
 HOME/vim/.netrwhist
+
+#-- these have sensitive contents, DO NOT COMMIT
 HOME/vim/viminfo
+HOME/vim/viminf?.tmp
