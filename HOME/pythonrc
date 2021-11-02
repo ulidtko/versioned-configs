@@ -172,6 +172,7 @@ except ImportError:
     pass
 
 
+# xclip -sel clip -o | xargs --null python -c 'import sys; print("".join([c + "\u0336" for c in sys.argv[1]]))' | xclip -sel clip -i
 overstrike = lambda s: str.join('', (c + u"\u0336" for c in s))
 
 
