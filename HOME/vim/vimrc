@@ -104,7 +104,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 "let g:ycm_key_invoke_completion = '<C-Space>' " -- default
 
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" FIXME causes mess in ctrl-p windows AFAIRC. Intended to autoclose the Preview
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " LSP client
 let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.json']
