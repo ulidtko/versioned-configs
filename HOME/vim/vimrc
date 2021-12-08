@@ -51,6 +51,10 @@ if has('nvim')
     set runtimepath^=~/.vim
     let &packpath = &runtimepath
     set shada=!,'100,<50,s10,h,n~/.config/nvim/shada
+
+    " since 0.6.0 https://github.com/neovim/neovim/issues/16569
+    " also use: yy
+    unmap Y
 endif
 
 " Avoid fish surprises for plugins
