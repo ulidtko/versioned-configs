@@ -4,7 +4,7 @@
 set -ge PATH
 set -Ux PATH $PATH
 
-type -q exa; and alias ls=exa
+type -q exa; and alias ls='exa --icons'
 type -q bat; and alias cat=bat
 
 type -q lesspipe; and eval (lesspipe)
