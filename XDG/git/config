@@ -43,3 +43,6 @@
 	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
+[init]
+	defaultBranch = main
