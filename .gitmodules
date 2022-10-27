@@ -72,6 +72,10 @@
 [submodule "vim-ctrlp-ag"]
 	path = HOME/vim/bundle/vim-ctrlp-ag
 	url = https://github.com/lokikl/vim-ctrlp-ag
+[submodule "HOME/vim/bundle/fzf.vim"]
+	path = HOME/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+	branch = master
 [submodule "nerdtree"]
 	path = HOME/vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -119,6 +123,10 @@
 	path = HOME/vim/bundle/haskell-vim
 	url = https://github.com/raichoo/haskell-vim
 	branch = master
+[submodule "HOME/vim/bundle/vim-syntax-shakespeare"]
+	path = HOME/vim/bundle/vim-syntax-shakespeare
+	url = https://github.com/pbrisbin/vim-syntax-shakespeare
+	branch = master
 [submodule "vim-hdevtools"]
 	path = HOME/vim/bundle/vim-hdevtools
 	url = https://github.com/bitc/vim-hdevtools
@@ -137,6 +145,10 @@
 [submodule "vim-terraform"]
 	path = HOME/vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+	branch = master
+[submodule "HOME/vim/bundle/vim-toml"]
+	path = HOME/vim/bundle/vim-toml
+	url = https://github.com/cespare/vim-toml
 	branch = master
 
 # ----- Completion engines -----
@@ -158,11 +170,4 @@
 	branch = next
 
 # vim: noet sw=8 ts=8
-[submodule "HOME/vim/bundle/vim-toml"]
-	path = HOME/vim/bundle/vim-toml
-	url = https://github.com/cespare/vim-toml
-	branch = master
-[submodule "HOME/vim/bundle/fzf.vim"]
-	path = HOME/vim/bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-	branch = master
+
