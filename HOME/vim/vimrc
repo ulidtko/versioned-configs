@@ -94,6 +94,8 @@ call gina#custom#mapping#nmap(
 let g:ale_command_wrapper = 'nice -n5'
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
+let g:ale_c_parse_makefile = 1
+"let g:ale_enabled = 0 " use :ALEDisable
 
 let g:ale_sign_error = "⚬"
 let g:ale_sign_warning = "⚠"
@@ -107,6 +109,8 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm-global-cflags.py"
 "let g:ycm_key_invoke_completion = '<C-Space>' " -- default
+let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+let g:ycm_log_level = 'debug'
 
 " FIXME causes mess in ctrl-p windows AFAIRC. Intended to autoclose the Preview
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -121,6 +125,7 @@ let g:LanguageClient_serverCommands = {
   \ }
 let g:LanguageClient_waitOutputTimeout = 3 " seconds, default 10
 let g:LanguageClient_useVirtualText = "CodeLens"
+let g:LanguageClient_selectionUI = "quickfix"
 let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
 let g:LanguageClient_hoverPreview = "Always"
 let g:LanguageClient_trace = "verbose"
@@ -193,10 +198,16 @@ nmap <leader>yd :YcmCompleter GetDocImprecise<CR>
 
 nmap <leader>n :lnext<CR>
 
+" LanguageClient
 nnoremap <F6> :call LanguageClient_contextMenu()<CR>
+map      <Leader>m <Cmd>call LanguageClient_contextMenu()<CR>
+ounmap   <Leader>m
+nnoremap <leader>e <Cmd>call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <leader>h <Cmd>call LanguageClient#textDocument_documentHighlight()<CR>
+nnoremap <leader>l <Cmd>call LanguageClient#textDocument_codeLens()<CR>
 map <Leader>k :call LanguageClient#textDocument_hover()<CR>
 map <Leader>g :call LanguageClient#textDocument_definition()<CR>
-map <Leader>r :call LanguageClient#textDocument_rename()<CR>
+map <Leader>z :call LanguageClient#textDocument_rename()<CR>
 map <Leader>f :call LanguageClient#textDocument_formatting()<CR>
 map <Leader>b :call LanguageClient#textDocument_references()<CR>
 map <Leader>a :call LanguageClient#textDocument_codeAction()<CR>

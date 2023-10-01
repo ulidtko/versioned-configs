@@ -245,11 +245,11 @@ def Settings(language=None, filename=None, _client_data=None, **_kwargs):
         logging.info("Trying .clang_complete files...")
         final_flags += LookupClangComplete(build_dir) or []
 
-        final_flags = AbsolutizeFlags(final_flags, project_root)
+        #final_flags = AbsolutizeFlags(final_flags, project_root)
 
     logging.info("[custom conf] returning %s", final_flags)
     return {
         'flags': final_flags,
-        'do_cache': True,
-        # 'include_paths_relative_to_dir': build_dir,
+        #'do_cache': True,
+        'include_paths_relative_to_dir': build_dir,
         }
