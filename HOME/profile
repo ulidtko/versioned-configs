@@ -1,4 +1,4 @@
-#-- ~/.profile is like ~/.bashrc but not only for bash.
+#-- ~/.profile is like ~/.bashrc but not only for bash [login shells].
 #-- It works with dash, ksh, zsh, etc... Though not fish as it's incompatible.
 #-- However fish has its own way to persistently set "universal variables".
 
@@ -14,7 +14,7 @@
 #-- $d is only appended when: 1) it's not already in PATH, 2) it's an existing dir.
 maybe_append_paths() {
     for d in "$@"; do
-        test ":${PATH#*"$d"}:" == ":$PATH:" && test -d "$d" && PATH="$PATH:$d"
+        test ":${PATH#*"$d"}:" = ":$PATH:" && test -d "$d" && PATH="$PATH:$d"
     done
 }
 
