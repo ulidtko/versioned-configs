@@ -1,16 +1,38 @@
-[ -d "$HOME/bin" ] && [[ :"$PATH": == *:"$HOME/bin":* ]] || PATH+=":$HOME/bin"
+#-- ~/.profile is like ~/.bashrc but not only for bash.
+#-- It works with dash, ksh, zsh, etc... Though not fish as it's incompatible.
+#-- However fish has its own way to persistently set "universal variables".
 
-[ -d "$HOME/.cabal/bin" ] && [[ :"$PATH": == *:"$HOME/.cabal/bin":* ]] || PATH="$HOME/.cabal/bin:$PATH"
-[ -d "$HOME/.cargo/bin" ] && [[ :"$PATH": == *:"$HOME/.cargo/bin":* ]] || PATH="$HOME/.cargo/bin:$PATH"
-[ -d "$HOME/.local/bin" ] && [[ :"$PATH": == *:"$HOME/.local/bin":* ]] || PATH="$HOME/.local/bin:$PATH"
+#-- Here we tell shellcheck this file is generic sh -- i.e. call out bashisms.
+#-- No shebang since .profile isn't for executing, but for source'ing.
+# shellcheck shell=sh
 
-export GOPATH="$HOME/src/GO"
-[ -d "$HOME/src/GO/bin" ] && [[ :"$PATH": == *:"$HOME/src/GO/bin":* ]] || PATH="$PATH:$HOME/src/GO/bin"
+#-- An abbreviation to shove stuff into $PATH.
+#--
+#-- Uses this posix trick for idempotence https://stackoverflow.com/a/8811800/531179
+#-- to not clutter PATH with copies of a directory when source'd multiple times.
+#--
+#-- $d is only appended when: 1) it's not already in PATH, 2) it's an existing dir.
+maybe_append_paths() {
+    for d in "$@"; do
+        test ":${PATH#*"$d"}:" == ":$PATH:" && test -d "$d" && PATH="$PATH:$d"
+    done
+}
 
-for d in "$HOME"/.gem/ruby/*/bin; do [[ :"$PATH": == *:"$d":* ]] || PATH="$PATH:$d"; done
+maybe_append_paths "$HOME/bin" #-- dangerous? yes. convenient? also yes.
 
-[ -d "$HOME/android-sdk/tools" ] && PATH="$PATH:$HOME/android-sdk/tools"
-[ -d "$HOME/android-sdk/platform-tools" ] && PATH="$PATH:$HOME/android-sdk/platform-tools"
+maybe_append_paths "$HOME/.local/bin"
+#-- if only I could ask all the package-manager writers in every language, to
+#-- stop inventing more bin install-dirs... default to ~/.local/bin damn it
+maybe_append_paths "$HOME/.cabal/bin"
+maybe_append_paths "$HOME/.cargo/bin"
+
+export GOPATH="$HOME/src/GO" #-- :golang_retarded:
+maybe_append_paths "$HOME/src/GO/bin"
+
+maybe_append_paths "$HOME/.gem/ruby/*/bin"
+
+maybe_append_paths "$HOME/android-sdk/tools" "$HOME/android-sdk/platform-tools"
+
 
 export EDITOR=vim
 export PAGER=less
