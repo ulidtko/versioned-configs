@@ -10,10 +10,19 @@ tags
 *.pyc
 
 *.creator.user
-node_modules
 
 autom4te.cache
 
 .session.vim
 .mypy_cache
 .undodir
+
+.stack-work
+
+node_modules
+# FIXME still dubious of this as a global default...
+# I know, I'm supposed to commit lockfiles. And bun's binary lockfile is nice,
+# just minimally obnoxious, short in diffs, doesn't make me scroll through kilo-lines
+# of json diff -- like yarn, npm, pnpm do. Still, I don't like every commit which
+# moves dependencies checks-in a source of rebase conflicts in binary file. Yuck.
+bun.lockb
