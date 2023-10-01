@@ -1,6 +1,15 @@
 [user]
-	name = max ulidtko
+	name = Max Ulidtko
 	email = ulidtko@gmail.com
+
+	signingkey = /home/ulidtko/.ssh/git-commit-signing-key
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/ulidtko/.config/git/allowed_ssh_signers
+
 [color]
 	diff = auto
 	status = auto
@@ -21,6 +30,7 @@
 	rebase = true
 [push]
 	default = upstream
+	gpgSign = if-asked
 [diff]
 	mnemonicprefix = true
 	colorMoved = zebra
@@ -46,6 +56,8 @@
 	skippedCherryPicks = false
 [init]
 	defaultBranch = main
+[safe]
+	directory = /home/ulidtko/src/bcc
 
 #-- https://github.com/so-fancy/diff-so-fancy
 [core]
