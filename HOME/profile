@@ -24,7 +24,9 @@ maybe_append_paths "$HOME/.local/bin"
 #-- if only I could ask all the package-manager writers in every language, to
 #-- stop inventing more bin install-dirs... default to ~/.local/bin damn it
 maybe_append_paths "$HOME/.cabal/bin"
+maybe_append_paths "$HOME/.ghcup/bin"
 maybe_append_paths "$HOME/.cargo/bin"
+maybe_append_paths "$HOME/.bun/bin"
 
 export GOPATH="$HOME/src/GO" #-- :golang_retarded:
 maybe_append_paths "$HOME/src/GO/bin"
