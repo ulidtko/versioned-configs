@@ -5,7 +5,7 @@
 [submodule "XDG/fish/fish-kubectl-completions"]
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
-	branch = master
+	branch = main
 [submodule "HOME/oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
