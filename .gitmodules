@@ -2,11 +2,11 @@
 [submodule "fish-kube-prompt"]
 	path = XDG/fish/fish-kube-prompt
 	url = https://github.com/aluxian/fish-kube-prompt
-[submodule "XDG/fish/fish-kubectl-completions"]
+[submodule "fish-kubectl-completions"]
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
 	branch = main
-[submodule "HOME/oh-my-zsh"]
+[submodule "oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
 	branch = master
@@ -123,7 +123,7 @@
 	path = HOME/vim/bundle/haskell-vim
 	url = https://github.com/raichoo/haskell-vim
 	branch = master
-[submodule "HOME/vim/bundle/vim-syntax-shakespeare"]
+[submodule "vim-syntax-shakespeare"]
 	path = HOME/vim/bundle/vim-syntax-shakespeare
 	url = https://github.com/pbrisbin/vim-syntax-shakespeare
 	branch = master
@@ -138,7 +138,7 @@
 [submodule "vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
-[submodule "cryptol.vim"]
+[submodule "vim-cryptol"]
 	path = HOME/vim/bundle/cryptol.vim
 	url = https://github.com/victoredwardocallaghan/cryptol.vim
 	branch = master
@@ -146,10 +146,13 @@
 	path = HOME/vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
 	branch = master
-[submodule "HOME/vim/bundle/vim-toml"]
+[submodule "vim-toml"]
 	path = HOME/vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml
 	branch = master
+[submodule "vim-dhall"]
+	path = HOME/vim/bundle/vim-dhall
+	url = https://github.com/vmchale/dhall-vim
 
 # ----- Completion engines -----
 [submodule "ale"]

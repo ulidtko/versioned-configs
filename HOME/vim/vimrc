@@ -119,6 +119,7 @@ let g:ycm_log_level = 'debug'
 let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.json']
 let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
+  \ 'dhall': ['dhall-lsp-server'],
   \ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
   \ 'rust': ['rls'],
   \ 'yaml': ['yaml-language-server', '--stdio']
@@ -137,6 +138,10 @@ let g:LanguageClient_windowLogMessageLevel = "Log"
 " :TOhtml settings
 let html_use_css = 1
 let html_dynamic_folds = 1
+
+" dhall-vim
+let g:dhall_format = 0
+let g:dhall_strip_whitespace = 1
 
 " autoloading & autosaving sessions, woooo!
 let g:workspace_session_name = '.session.vim'
