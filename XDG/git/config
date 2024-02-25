@@ -1,7 +1,61 @@
+[advice]
+	detachedHead = false
+	skippedCherryPicks = false
+
+[alias]
+	co = checkout
+	st = status
+	diffc = diff --cached
+	logg = log --color --graph --pretty=format:'%C(cyan dim)%h%Creset -%C(red bold)%d%Creset %s %C(yellow)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+
+[core]
+	pager = less -FRSX
+	#excludesfile = ~/.gitignore_global
+
+[diff]
+	colorMoved = zebra
+	mnemonicprefix = true
+[diff "word-diff"]
+	command = /home/ulidtko/.config/git/word-diff-wrapper
+[diff "sopsdiffer"]
+	textconv = sops -d
+
+[fetch]
+	prune = true
+
+[init]
+	defaultBranch = main
+
+[merge]
+	tool = meld
+	stat = true
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[pull]
+	rebase = true
+[push]
+	default = upstream
+	gpgSign = if-asked
+[rebase]
+	autosquash = true
+
+[rerere]
+	enabled = true
+
+[safe]
+	directory = /home/ulidtko/src/bcc
+
+
+#-- ID & commit signing
 [user]
 	name = Max Ulidtko
 	email = ulidtko@gmail.com
-
 	signingkey = /home/ulidtko/.ssh/git-commit-signing-key
 [commit]
 	gpgsign = true
@@ -10,54 +64,6 @@
 [gpg "ssh"]
 	allowedSignersFile = /home/ulidtko/.config/git/allowed_ssh_signers
 
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-[core]
-	pager = less -FRSX
-	#excludesfile = ~/.gitignore_global
-[fetch]
-	prune = true
-[alias]
-	co = checkout
-	st = status
-	diffc = diff --cached
-	logg = log --color --graph --pretty=format:'%C(cyan dim)%h%Creset -%C(red bold)%d%Creset %s %C(yellow)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-[pull]
-	rebase = true
-[push]
-	default = upstream
-	gpgSign = if-asked
-[diff]
-	mnemonicprefix = true
-	colorMoved = zebra
-[diff "word-diff"]
-	command = /home/ulidtko/.config/git/word-diff-wrapper
-[diff "sopsdiffer"]
-	textconv = sops -d
-[rebase]
-	autosquash = true
-[branch]
-	autosetupmerge = always
-	autosetuprebase = always
-[rerere]
-	enabled = true
-[merge]
-	tool = meld
-	stat = true
-[mergetool "meld"]
-	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
-[advice]
-	detachedHead = false
-	skippedCherryPicks = false
-[init]
-	defaultBranch = main
-[safe]
-	directory = /home/ulidtko/src/bcc
 
 #-- https://github.com/so-fancy/diff-so-fancy
 [core]
