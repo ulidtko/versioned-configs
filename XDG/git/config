@@ -8,6 +8,12 @@
 	diffc = diff --cached
 	logg = log --color --graph --pretty=format:'%C(cyan dim)%h%Creset -%C(red bold)%d%Creset %s %C(yellow)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+[blame]
+	#-- https://www.michaelheap.com/git-ignore-rev/
+	ignoreRevsFile = .git-blame-ignore-revs
+	markIgnoredLines = true
+	markUnblamableLines = true
+
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
