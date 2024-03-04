@@ -154,6 +154,17 @@
 	url = https://github.com/cespare/vim-toml
 	branch = master
 
+# ----- Agda -----
+[submodule "nvim-agda"]
+	path = HOME/vim/bundle/cornelis
+	url = https://github.com/isovector/cornelis
+[submodule "nvim-hs.vim"]
+	path = HOME/vim/bundle/nvim-hs.vim
+	url = https://github.com/neovimhaskell/nvim-hs.vim
+[submodule "vim-textobj-user"]
+	path = HOME/vim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user
+
 # ----- Completion engines -----
 [submodule "ale"]
 	path = HOME/vim/bundle/ale
