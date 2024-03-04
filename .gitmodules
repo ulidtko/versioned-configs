@@ -29,9 +29,47 @@
 	url = https://github.com/vim-scripts/darkspectrum
 	branch = master
 # "general" plugins which make sense
+[submodule "ctrlp.vim"]
+	path = HOME/vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+	branch = master
+[submodule "fzf.vim"]
+	path = HOME/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+	branch = master
+[submodule "gina.vim"]
+	path = HOME/vim/bundle/gina.vim
+	url = https://github.com/lambdalisue/gina.vim
+	branch = master
+[submodule "nerdtree"]
+	path = HOME/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "nerdtree-git-plugin"]
+	path = HOME/vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+	branch = master
+[submodule "tcomment"]
+	path = HOME/vim/bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim
+	branch = master
+[submodule "vim-airline"]
+	path = HOME/vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+	branch = master
+[submodule "vim-ctrlp-ag"]
+	path = HOME/vim/bundle/vim-ctrlp-ag
+	url = https://github.com/lokikl/vim-ctrlp-ag
 [submodule "vim-editorconfig"]
 	path = HOME/vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+	branch = master
+[submodule "vim-gitgutter"]
+	path = HOME/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+	branch = master
+[submodule "vim-pencil"]
+	path = HOME/vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
 	branch = master
 [submodule "vim-sensible"]
 	path = HOME/vim/bundle/vim-sensible
@@ -41,47 +79,9 @@
 	path = HOME/vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
 	branch = master
-[submodule "vim-pencil"]
-	path = HOME/vim/bundle/vim-pencil
-	url = https://github.com/reedes/vim-pencil
-	branch = master
 [submodule "vim-workspace"]
 	path = HOME/vim/bundle/vim-workspace
 	url = https://github.com/thaerkh/vim-workspace
-	branch = master
-[submodule "vim-airline"]
-	path = HOME/vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-	branch = master
-[submodule "tcomment"]
-	path = HOME/vim/bundle/tcomment
-	url = https://github.com/tomtom/tcomment_vim
-	branch = master
-[submodule "gina.vim"]
-	path = HOME/vim/bundle/gina.vim
-	url = https://github.com/lambdalisue/gina.vim
-	branch = master
-[submodule "vim-gitgutter"]
-	path = HOME/vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
-	branch = master
-[submodule "ctrlp.vim"]
-	path = HOME/vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
-	branch = master
-[submodule "vim-ctrlp-ag"]
-	path = HOME/vim/bundle/vim-ctrlp-ag
-	url = https://github.com/lokikl/vim-ctrlp-ag
-[submodule "HOME/vim/bundle/fzf.vim"]
-	path = HOME/vim/bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-	branch = master
-[submodule "nerdtree"]
-	path = HOME/vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "nerdtree-git-plugin"]
-	path = HOME/vim/bundle/nerdtree-git-plugin
-	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 	branch = master
 [submodule "vimproc.vim"]
 	path = HOME/vim/bundle/vimproc.vim
@@ -97,6 +97,10 @@
 	path = HOME/vim/bundle/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim.git
 	branch = master
+[submodule "haskell-vim"]
+	path = HOME/vim/bundle/haskell-vim
+	url = https://github.com/raichoo/haskell-vim
+	branch = master
 [submodule "idris-vim"]
 	path = HOME/vim/bundle/idris-vim
 	url = https://github.com/idris-hackers/idris-vim.git
@@ -104,43 +108,42 @@
 [submodule "nginx.vim"]
 	path = HOME/vim/bundle/nginx.vim
 	url = https://github.com/chr4/nginx.vim
-[submodule "vim-fish"]
-	path = HOME/vim/bundle/vim-fish
-	url = https://github.com/dag/vim-fish
 [submodule "rust.vim"]
 	path = HOME/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim
-	branch = master
-[submodule "vim-racer"]
-	path = HOME/vim/bundle/vim-racer
-	url = https://github.com/racer-rust/vim-racer
-	branch = master
-[submodule "vim-cargo"]
-	path = HOME/vim/bundle/vim-cargo
-	url = https://github.com/timonv/vim-cargo
-	branch = master
-[submodule "haskell-vim"]
-	path = HOME/vim/bundle/haskell-vim
-	url = https://github.com/raichoo/haskell-vim
-	branch = master
-[submodule "vim-syntax-shakespeare"]
-	path = HOME/vim/bundle/vim-syntax-shakespeare
-	url = https://github.com/pbrisbin/vim-syntax-shakespeare
-	branch = master
-[submodule "vim-hdevtools"]
-	path = HOME/vim/bundle/vim-hdevtools
-	url = https://github.com/bitc/vim-hdevtools
 	branch = master
 [submodule "thrift.vim"]
 	path = HOME/vim/bundle/thrift.vim
 	url = https://github.com/solarnz/thrift.vim
 	branch = master
-[submodule "vim-mercury"]
-	path = HOME/vim/bundle/vim-mercury
-	url = https://github.com/khorser/vim-mercury
+[submodule "vim-cargo"]
+	path = HOME/vim/bundle/vim-cargo
+	url = https://github.com/timonv/vim-cargo
+	branch = master
 [submodule "vim-cryptol"]
 	path = HOME/vim/bundle/cryptol.vim
 	url = https://github.com/victoredwardocallaghan/cryptol.vim
+	branch = master
+[submodule "vim-dhall"]
+	path = HOME/vim/bundle/vim-dhall
+	url = https://github.com/vmchale/dhall-vim
+[submodule "vim-fish"]
+	path = HOME/vim/bundle/vim-fish
+	url = https://github.com/dag/vim-fish
+[submodule "vim-hdevtools"]
+	path = HOME/vim/bundle/vim-hdevtools
+	url = https://github.com/bitc/vim-hdevtools
+	branch = master
+[submodule "vim-mercury"]
+	path = HOME/vim/bundle/vim-mercury
+	url = https://github.com/khorser/vim-mercury
+[submodule "vim-racer"]
+	path = HOME/vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+	branch = master
+[submodule "vim-syntax-shakespeare"]
+	path = HOME/vim/bundle/vim-syntax-shakespeare
+	url = https://github.com/pbrisbin/vim-syntax-shakespeare
 	branch = master
 [submodule "vim-terraform"]
 	path = HOME/vim/bundle/vim-terraform
@@ -150,9 +153,6 @@
 	path = HOME/vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml
 	branch = master
-[submodule "vim-dhall"]
-	path = HOME/vim/bundle/vim-dhall
-	url = https://github.com/vmchale/dhall-vim
 
 # ----- Completion engines -----
 [submodule "ale"]
