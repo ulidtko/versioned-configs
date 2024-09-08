@@ -66,7 +66,7 @@
 [submodule "vim-gitgutter"]
 	path = HOME/vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-	branch = master
+	branch = main
 [submodule "vim-pencil"]
 	path = HOME/vim/bundle/vim-pencil
 	url = https://github.com/reedes/vim-pencil
