@@ -43,7 +43,7 @@
 	branch = master
 [submodule "nerdtree"]
 	path = HOME/vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = https://github.com/preservim/nerdtree.git
 [submodule "nerdtree-git-plugin"]
 	path = HOME/vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
