@@ -1,3 +1,5 @@
+# vim: ft=gitconfig
+
 [advice]
 	detachedHead = false
 	skippedCherryPicks = false
@@ -23,7 +25,7 @@
 	#excludesfile = ~/.gitignore_global
 
 [diff]
-	colorMoved = zebra
+	colormoved = zebra
 	mnemonicprefix = true
 [diff "word-diff"]
 	command = /home/ulidtko/.config/git/word-diff-wrapper
