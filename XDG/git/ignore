@@ -26,3 +26,5 @@ node_modules
 # of json diff -- like yarn, npm, pnpm do. Still, I don't like every commit which
 # moves dependencies checks-in a source of rebase conflicts in binary file. Yuck.
 bun.lockb
+
+.git-blame-ignore-revs

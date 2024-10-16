@@ -12,6 +12,7 @@
 
 [blame]
 	#-- https://www.michaelheap.com/git-ignore-rev/
+	# FIXME blame throws fatal error if absent
 	ignoreRevsFile = .git-blame-ignore-revs
 	markIgnoredLines = true
 	markUnblamableLines = true
