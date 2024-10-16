@@ -79,9 +79,30 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
 	diffFilter = diff-so-fancy --patch
-[add "interactive"]
-	#-- workaround for git 2.37, see diff-so-fancy #439
-	useBuiltin = false
+#[add "interactive"]
+#	#-- workaround for git <2.38, see diff-so-fancy #439
+#	useBuiltin = false
 [diff-so-fancy]
 	stripLeadingSymbols = false
 	markEmptyLines = false
+
+#-- https://dandavison.github.io/delta
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	features = colibri
+	commit-decoration-style = navy orchid box
+	commit-style = navy orchid bold italic
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = diff3
+[include]
+	path = /home/ulidtko/.config/git/delta-themes.gitconfig
+
+
+[url "git@github.com:zoomin-software/"]
+	insteadOf = https://github.com/zoomin-software/
+[url "git@bitbucket.org:zoominsoftware/"]
+	insteadOf = https://bitbucket.org/zoominsoftware/
