@@ -172,6 +172,12 @@ function! AltCommand(path, vim_command)
   endif
 endfunction
 
+" Workaround for https://github.com/vim-airline/vim-airline/issues/2687
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = '㏇'
+
 " -=================- "
 " === Keybindings === "
 " -=================- "
