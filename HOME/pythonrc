@@ -106,16 +106,12 @@ You've got color, history, and pretty printing.
 (If your ~/.inputrc doesn't suck, you've also
 got completion and vi-mode keybindings.)
 %(Brown)s
-Type \e to get an external editor.
+Type \\e to get an external editor.
 %(Blue)s
 Oh yeah, it is that cool.
 %(Normal)s""" % _c
 
 WELCOME = ""
-
-#atexit.register(lambda: sys.stdout.write("""%(DarkGray)s
-#Sheesh, I thought he'd never leave. Who invited that guy?
-#%(Normal)s""" % _c))
 
 # Django Helpers
 ################
@@ -177,11 +173,11 @@ overstrike = lambda s: str.join('', (c + u"\u0336" for c in s))
 
 
 # Start an external editor with \e
-##################################     
+##################################
 # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/438813/
 
 EDITOR = os.environ.get('EDITOR', 'vi')
-EDIT_CMD = '\e'
+EDIT_CMD = '\\e'
 
 class EditableBufferInteractiveConsole(InteractiveConsole):
     def __init__(self, *args, **kwargs):
