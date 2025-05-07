@@ -133,10 +133,6 @@
 [submodule "vim-hcl"]
 	path = HOME/vim/bundle/vim-hcl
 	url = https://github.com/jvirtanen/vim-hcl.git
-[submodule "vim-hdevtools"]
-	path = HOME/vim/bundle/vim-hdevtools
-	url = https://github.com/bitc/vim-hdevtools
-	branch = master
 [submodule "vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
