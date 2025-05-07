@@ -223,6 +223,8 @@ map <Leader>f :call LanguageClient#textDocument_formatting()<CR>
 map <Leader>b :call LanguageClient#textDocument_references()<CR>
 map <Leader>a :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+map [d :call LanguageClient#diagnosticsPrevious()<CR>
+map ]d :call LanguageClient#diagnosticsNext()<CR>
 nmap <leader>r :exe (b:LanguageClient_isServerRunning) ? ":LanguageClientStop" : ":LanguageClientStart" <CR>
 
 inoremap <C-space> <C-X><C-o>
