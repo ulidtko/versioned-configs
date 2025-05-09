@@ -28,8 +28,8 @@
 [diff]
 	colormoved = zebra
 	mnemonicprefix = true
-[diff "word-diff"]
-	command = /home/ulidtko/.config/git/word-diff-wrapper
+# [diff "word-diff"]
+# 	command = /home/ulidtko/.config/git/word-diff-wrapper
 [diff "sopsdiffer"]
 	textconv = sops -d
 
@@ -89,7 +89,14 @@
 #-- https://dandavison.github.io/delta
 [delta]
 	navigate = true    # use n and N to move between diff sections
+	hyperlinks = true
+	#features = arctic-fox
+	#features = calochortus-lyallii
 	features = colibri
+	#features = gruvmax-fang
+	#features = tangara-chilensis
+	#features = villsau
+	#features = woolly-mammoth
 	commit-decoration-style = navy orchid box
 	commit-style = navy orchid bold italic
 [core]
