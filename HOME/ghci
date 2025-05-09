@@ -4,6 +4,8 @@
 :def hoogle \str -> return (":! hoogle --count=15 \"" ++ str ++ "\"")
 :def doc \q -> return (":! hoogle --info \"" ++ q ++ "\"")
 
+-- Write .ghci_history separate per-project. https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html#invoking-ghci
+:seti -flocal-ghci-history
 
 -----------------------------------------------------
 -- The dot-ghci file of ghc-vis. Inlined, because...
