@@ -4,4 +4,37 @@
 :def hoogle \str -> return (":! hoogle --count=15 \"" ++ str ++ "\"")
 :def doc \q -> return (":! hoogle --info \"" ++ q ++ "\"")
 
-:def ghc-vis \_ -> return ":script /home/ulidtko/.cabal/share/x86_64-linux-ghc-7.10.2/ghc-vis-0.7.2.9/ghci"
+
+-----------------------------------------------------
+-- The dot-ghci file of ghc-vis. Inlined, because...
+-- ghc-vis isn't exactly easy to install. And to add insult to injury, even after installed,
+-- Cabal makes it stupendously hard to locate: giving nigh unpredictable install paths like
+-- .cabal/store/ghc-9.8.2-6af5/ghc-vis-0.9.3.1-b942a0b19f55b8fba693a2a102380d69fc971903b36f22ce031f0852f0546196/share/ghci
+
+-- :def vis    \_ -> Control.Monad.return "GHC.Vis.vis"
+-- :def mvis   \_ -> Control.Monad.return "GHC.Vis.mvis"
+-- :def svis   \_ -> Control.Monad.return "GHC.Vis.svis"
+-- :def view   \x -> Control.Monad.return ("GHC.Vis.view (" ++ x ++ ") " ++ show x)
+-- :def eval   \x -> Control.Monad.return ("GHC.Vis.eval \"" ++ x ++ "\"")
+-- :def switch \_ -> Control.Monad.return "GHC.Vis.switch"
+-- :def update \_ -> Control.Monad.return "GHC.Vis.update"
+-- :def clear  \_ -> Control.Monad.return "GHC.Vis.clear"
+-- :def restore \_ -> Control.Monad.return "GHC.Vis.restore"
+-- :def timeBack \_ -> Control.Monad.return "GHC.Vis.history (+1)"
+-- :def timeForward \_ -> Control.Monad.return "GHC.Vis.history (\\x -> x - 1)"
+-- :def export \x -> Control.Monad.return ("GHC.Vis.export " ++ show x)
+-- :def setDepth \x -> Control.Monad.return ("GHC.Vis.setDepth (" ++ x ++ ")")
+
+-- Evaluate one step and update values in ghc-vis
+-- :def su \x -> Control.Monad.return (":step " ++ x ++ "\n:update")
+
+-- Continue to next breakpoint and update values in ghc-vis
+-- :def cu \_ -> Control.Monad.return ":continue\n:update"
+
+-- Keep evaluating and updating on any key pressed, quit with q
+-- :def asu \x -> getChar >>= \c -> case c of { 'q' -> return ""; _ -> return $ ":step " ++ x ++ "\n:update\n:asu" }
+
+-- :tsu t x
+-- Evaluate one step of expression x every t seconds until any key is pressed
+-- :def tsu \x -> (System.Timeout.timeout (round $ 1000000 * (read . head $ words x :: Double)) getChar) >>= \c -> case c of { Just _ -> return ""; _ -> return $ ":step " ++ (unwords . tail $ words x) ++ "\n:update\n:tsu " ++ (head $ words x) }
+-----------------------------------------------------
