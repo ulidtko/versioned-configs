@@ -179,8 +179,10 @@
 	branch = master
 [submodule "LanguageClient-neovim"]
 	path = HOME/vim/bundle/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim
-	branch = next
+	#url = https://github.com/autozimu/LanguageClient-neovim
+	#branch = next
+	url = ssh://git@github.com/ulidtko/LanguageClient-neovim.git
+	branch = zombie-burying-ritual
 
 # vim: noet sw=8 ts=8
 
