@@ -29,7 +29,7 @@
 	colormoved = zebra
 	mnemonicprefix = true
 # [diff "word-diff"]
-# 	command = /home/ulidtko/.config/git/word-diff-wrapper
+# 	command = ~/.config/git/word-diff-wrapper
 [diff "sopsdiffer"]
 	textconv = sops -d
 
@@ -58,20 +58,20 @@
 	enabled = true
 
 [safe]
-	directory = /home/ulidtko/src/bcc
+	directory = ~/src/bcc
 
 
 #-- ID & commit signing
 [user]
 	name = Max Ulidtko
 	email = ulidtko@gmail.com
-	signingkey = /home/ulidtko/.ssh/git-commit-signing-key
+	signingkey = ~/.ssh/git-commit-signing-key
 [commit]
 	gpgsign = true
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	allowedSignersFile = /home/ulidtko/.config/git/allowed_ssh_signers
+	allowedSignersFile = ~/.config/git/allowed_ssh_signers
 
 
 #-- https://github.com/so-fancy/diff-so-fancy
@@ -106,7 +106,7 @@
 [merge]
 	conflictstyle = diff3
 [include]
-	path = /home/ulidtko/.config/git/delta-themes.gitconfig
+	path = ~/.config/git/delta-themes.gitconfig
 
 
 [url "git@github.com:zoomin-software/"]
