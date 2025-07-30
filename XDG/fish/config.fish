@@ -4,6 +4,9 @@
 set -ge PATH
 set -Ux PATH $PATH
 
+#-- on Darwin, source /etc/paths
+test -r /etc/paths && set --universal PATH (/bin/cat /etc/paths) || true
+
 type -q exa; and alias ls='exa --icons'
 type -q bat; and alias cat=bat
 
