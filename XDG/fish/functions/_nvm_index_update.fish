@@ -1,0 +1,1 @@
+../nvm.fish/functions/_nvm_index_update.fish

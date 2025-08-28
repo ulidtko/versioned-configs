@@ -6,6 +6,11 @@
 	path = XDG/fish/fish-kubectl-completions
 	url = https://github.com/evanlucas/fish-kubectl-completions
 	branch = main
+[submodule "nvm.fish"]
+	path = XDG/fish/nvm.fish
+	url = https://github.com/jorgebucaran/nvm.fish
+	branch = main
+
 [submodule "oh-my-zsh"]
 	path = HOME/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh

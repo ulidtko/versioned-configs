@@ -1,0 +1,1 @@
+../nvm.fish/functions/_nvm_version_deactivate.fish
