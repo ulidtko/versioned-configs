@@ -75,16 +75,16 @@
 
 
 #-- https://github.com/so-fancy/diff-so-fancy
-[core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[interactive]
-	diffFilter = diff-so-fancy --patch
+#[core]
+#	pager = diff-so-fancy | less --tabs=4 -RFX
+#[interactive]
+#	diffFilter = diff-so-fancy --patch
 #[add "interactive"]
 #	#-- workaround for git <2.38, see diff-so-fancy #439
 #	useBuiltin = false
-[diff-so-fancy]
-	stripLeadingSymbols = false
-	markEmptyLines = false
+#[diff-so-fancy]
+#	stripLeadingSymbols = false
+#	markEmptyLines = false
 
 #-- https://dandavison.github.io/delta
 [delta]
