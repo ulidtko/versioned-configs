@@ -48,3 +48,8 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Socket CLI completion for socket.dev #-- FIXME darwin only, but will work on Linux too
+if [ -f "$HOME/Library/Application Support/socket/completion/socket-completion.bash" ]; then
+    source "$HOME/Library/Application Support/socket/completion/socket-completion.bash"
+    complete -F _socket_completion socket
+fi
