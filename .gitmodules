@@ -187,7 +187,7 @@
 	#url = https://github.com/autozimu/LanguageClient-neovim
 	#branch = next
 	url = ssh://git@github.com/ulidtko/LanguageClient-neovim.git
-	branch = zombie-burying-ritual
+	branch = next
 
 # vim: noet sw=8 ts=8
 
