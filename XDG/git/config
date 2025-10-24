@@ -113,3 +113,5 @@
 	insteadOf = https://github.com/zoomin-software/
 [url "git@bitbucket.org:zoominsoftware/"]
 	insteadOf = https://bitbucket.org/zoominsoftware/
+[url "git@git.soma.salesforce.com:"]
+	insteadOf = https://git.soma.salesforce.com/
