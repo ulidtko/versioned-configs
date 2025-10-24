@@ -28,6 +28,10 @@
 	path = HOME/vim/bundle/vim-colors-darkspectrum
 	url = https://github.com/vim-scripts/darkspectrum
 	branch = master
+[submodule "vim-colors-everforest"]
+	path = HOME/vim/bundle/vim-colors-everforest
+	url = https://github.com/sainnhe/everforest
+	branch = master
 # "general" plugins which make sense
 [submodule "ctrlp.vim"]
 	path = HOME/vim/bundle/ctrlp.vim
