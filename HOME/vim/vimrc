@@ -238,13 +238,27 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:lclose<CR>:cclose<CR>:echo<CR>
 " === Colors === "
 " -============- "
 
-set termguicolors
-"colorscheme darkspectrum
-"colorscheme solarized
-"colorscheme base16-brewer
-"colorscheme base16-chalk
-"colorscheme base16-gruvbox-dark-pale
-colorscheme base16-material
+" First of all, see if this Vim build supports 24-bit true-color sequences
+let g:want_truecolor = has('termguicolors')
+
+" Apple's Terminal.app before macOS 16 (Tahoe) cannot do true color.
+if $TERM_PROGRAM == 'Apple_Terminal'
+  let s:macos_version = trim(system('sw_vers -productVersion'))
+  let s:macos_major = str2nr(split(s:macos_version, '\.')[0])
+  if s:macos_major < 16
+    let g:want_truecolor = 0
+  endif
+endif
+
+if g:want_truecolor
+  " Enable 24-bit true-color, select theme accordingly
+  set termguicolors
+  colorscheme base16-material
+else
+  " fallback to 256-color palette
+  set notermguicolors
+  colorscheme everforest
+endif
 
 " Thanks for reading! ^__^
 "
