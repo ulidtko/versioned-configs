@@ -18,3 +18,6 @@ complete --command aws --no-files \
                 set -lx COMP_LINE (commandline); \
                 aws_completer | sed \'s/ $//\'; \
             end)'
+
+#-- unpack k to kubectl
+abbr --global k kubectl
