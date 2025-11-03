@@ -116,6 +116,8 @@ let g:ycm_log_level = 'debug'
 "au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " LSP client
+" TODO -- https://neovim.io/doc/user/lsp.html
+"      -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/hls.lua
 let g:LanguageClient_settingsPath = ['.vim/settings.json', '.vim/lsp-settings.json']
 let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
