@@ -251,6 +251,8 @@ if $TERM_PROGRAM == 'Apple_Terminal'
   endif
 endif
 
+" NOTE: use :Colors to test the themes!
+
 if g:want_truecolor
   " Enable 24-bit true-color, select theme accordingly
   set termguicolors
