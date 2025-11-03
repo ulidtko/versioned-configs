@@ -16,3 +16,10 @@ let g:ale_fixers = ['reorder-python-imports', 'black']
 
 " https://pyre-check.org/docs/getting-started/
 let g:ale_linters={'python': ['pyre']}
+
+" https://pyrefly.org
+" let b:LanguageClient_serverCommands = {
+"   \ 'python': ['pyrefly', 'lsp']
+"   \ }
+
+" For LanguageClient, LSP config is global. See main vimrc

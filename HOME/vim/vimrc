@@ -121,6 +121,7 @@ let g:LanguageClient_rootMarkers = ['.git', 'LICENSE', 'COPYING']
 let g:LanguageClient_serverCommands = {
   \ 'dhall': ['dhall-lsp-server'],
   \ 'haskell': ['haskell-language-server-wrapper', '--lsp', '+RTS', '-M4G'],
+  \ 'python': ['pyrefly', 'lsp'],
   \ 'rust': ['rls'],
   \ 'yaml': ['yaml-language-server', '--stdio']
   \ }
