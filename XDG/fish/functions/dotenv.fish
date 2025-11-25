@@ -1,0 +1,1 @@
+../dotenv-for-fish/dotenv.fish

@@ -1,4 +1,8 @@
 # ----- Non-Vim submodules -----
+[submodule "fish-dotenv"]
+	path = XDG/fish/dotenv-for-fish
+	url = https://github.com/SpaceAceMonkey/dotenv-for-fish
+	branch = main
 [submodule "fish-kube-prompt"]
 	path = XDG/fish/fish-kube-prompt
 	url = https://github.com/aluxian/fish-kube-prompt
