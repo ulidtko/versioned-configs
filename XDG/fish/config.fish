@@ -24,3 +24,6 @@ abbr --global k kubectl
 
 #-- pyenv init, if installed
 if type -q pyenv; pyenv init - fish | source; end
+
+#-- global export EDITOR=vim
+set -gx EDITOR vim
