@@ -21,3 +21,6 @@ complete --command aws --no-files \
 
 #-- unpack k to kubectl
 abbr --global k kubectl
+
+#-- pyenv init, if installed
+if type -q pyenv; pyenv init - fish | source; end
