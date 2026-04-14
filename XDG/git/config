@@ -24,6 +24,7 @@
 [core]
 	pager = less -FRSX
 	#excludesfile = ~/.gitignore_global
+	hooksPath = ~/.config/git/hooks
 
 [diff]
 	colormoved = zebra
