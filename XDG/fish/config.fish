@@ -27,3 +27,10 @@ if type -q pyenv; pyenv init - fish | source; end
 
 #-- global export EDITOR=vim
 set -gx EDITOR vim
+
+#-- Ghostty sets TERM=xterm-ghostty, which confuses a lot of servers.
+if test "$TERM_PROGRAM" = ghostty
+  function ssh
+      env TERM=xterm-256color COLORTERM=truecolor command ssh $argv
+  end
+end
