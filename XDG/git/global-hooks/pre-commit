@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#-- Global core.hooksPath shadows per-repo .git/hooks/pre-commit.
+#-- Dispatch to that, if it exists.
+
+REPO="$(git rev-parse --show-toplevel)" || exit 0
+PRECOMMIT="$REPO/.githooks/pre-commit"
+test -x "$PRECOMMIT" && exec "$PRECOMMIT" "$@" || true
