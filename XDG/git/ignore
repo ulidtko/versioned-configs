@@ -28,3 +28,5 @@ node_modules
 bun.lockb
 
 .git-blame-ignore-revs
+
+**/.claude/settings.local.json

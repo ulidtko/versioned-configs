@@ -1,4 +1,8 @@
 # ----- Non-Vim submodules -----
+[submodule "fish-dotenv"]
+	path = XDG/fish/dotenv-for-fish
+	url = https://github.com/SpaceAceMonkey/dotenv-for-fish
+	branch = main
 [submodule "fish-kube-prompt"]
 	path = XDG/fish/fish-kube-prompt
 	url = https://github.com/aluxian/fish-kube-prompt
@@ -140,6 +144,10 @@
 [submodule "vim-mercury"]
 	path = HOME/vim/bundle/vim-mercury
 	url = https://github.com/khorser/vim-mercury
+[submodule "vim-nix"]
+	path = HOME/vim/bundle/vim-nix
+	url = https://github.com/LnL7/vim-nix
+	branch = master
 [submodule "vim-racer"]
 	path = HOME/vim/bundle/vim-racer
 	url = https://github.com/racer-rust/vim-racer
@@ -189,4 +197,3 @@
 	branch = next
 
 # vim: noet sw=8 ts=8
-
