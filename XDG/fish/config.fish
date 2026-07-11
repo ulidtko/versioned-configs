@@ -7,6 +7,9 @@ set -Ux PATH $PATH
 #-- on Darwin, source /etc/paths
 test -r /etc/paths && set --universal PATH (/bin/cat /etc/paths) || true
 
+#-- make Alt-Bksp behave like in bash
+bind alt-backspace 'commandline -f backward-kill-path-component'
+
 type -q exa; and alias ls='exa --icons'
 type -q bat; and alias cat=bat
 
