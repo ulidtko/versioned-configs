@@ -1,8 +1,8 @@
 :set prompt "λ\nλλ ➔ "
 :set stop :list
-:def sl \_ -> return ":steplocal"
-:def hoogle \str -> return (":! hoogle --count=15 \"" ++ str ++ "\"")
-:def doc \q -> return (":! hoogle --info \"" ++ q ++ "\"")
+:def sl \_ -> Control.Monad.return ":steplocal"
+:def hoogle \str -> let (++) = (Data.List.++) in Control.Monad.return (":! hoogle --count=15 \"" ++ str ++ "\"")
+-- :def doc \q -> let (++) = (Data.List.++) in Control.Monad.return (":! hoogle --info \"" ++ q ++ "\"")
 
 -- Write .ghci_history separate per-project. https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html#invoking-ghci
 :seti -flocal-ghci-history
